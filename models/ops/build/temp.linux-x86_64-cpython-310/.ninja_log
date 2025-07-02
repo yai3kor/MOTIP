@@ -1,0 +1,4 @@
+# ninja log v5
+0	8117	1750408545043298429	/media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/models/ops/build/temp.linux-x86_64-cpython-310/media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/models/ops/src/cpu/ms_deform_attn_cpu.o	353eeab522d7e1f7
+1	23537	1750408560463297888	/media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/models/ops/build/temp.linux-x86_64-cpython-310/media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/models/ops/src/vision.o	5f1e3b46e340361
+1	28509	1750408565419297714	/media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/models/ops/build/temp.linux-x86_64-cpython-310/media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/models/ops/src/cuda/ms_deform_attn_cuda.o	c3b0d3b8fc3407e3

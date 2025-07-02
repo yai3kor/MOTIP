@@ -158,6 +158,39 @@ class RuntimeTracker:
         self._filter_out_inactive_tracks()
         pass
         return
+    def set_external_detections(self, detections_tensor):
+        boxes_xywh = detections_tensor[:, :4] / self.bbox_unnorm
+        boxes_cxcywh = torch.zeros_like(boxes_xywh)
+        boxes_cxcywh[:, 0] = boxes_xywh[:, 0] + boxes_xywh[:, 2] / 2
+        boxes_cxcywh[:, 1] = boxes_xywh[:, 1] + boxes_xywh[:, 3] / 2
+        boxes_cxcywh[:, 2] = boxes_xywh[:, 2]
+        boxes_cxcywh[:, 3] = boxes_xywh[:, 3]
+
+        scores = detections_tensor[:, 4]
+        categories = detections_tensor[:, 5].long()
+
+        output_embeds = torch.randn((boxes_cxcywh.size(0), 256), dtype=self.dtype, device=boxes_cxcywh.device)
+
+        keep = scores > self.newborn_thresh
+        boxes = boxes_cxcywh[keep]
+        output_embeds = output_embeds[keep]
+        scores = scores[keep]
+        categories = categories[keep]
+
+        id_pred_labels = self.num_id_vocabulary * torch.ones(len(scores), dtype=torch.int64, device=boxes.device)
+        id_labels = self._assign_newborn_id_labels(id_pred_labels)
+
+        self.current_track_results = {
+            "score": scores,
+            "category": categories,
+            "bbox": boxes * self.bbox_unnorm,
+            "id": torch.tensor([self.id_label_to_id[_] for _ in id_labels.tolist()], dtype=torch.int64),
+        }
+
+        for _ in range(len(id_labels)):
+            self.id_queue.add(id_labels[_].item())
+        self._update_trajectory_infos(boxes, output_embeds, id_labels)
+        self._filter_out_inactive_tracks()
 
     def get_track_results(self):
         return self.current_track_results
