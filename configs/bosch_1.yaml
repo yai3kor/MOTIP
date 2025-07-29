@@ -1,0 +1,36 @@
+# Inherit MOTIP config
+SUPER_CONFIG_PATH: ./configs/r50_deformable_detr_motip_dancetrack.yaml
+
+# Dataset
+DATASETS: [Bosch_1]
+DATASET_SPLITS: [train]
+DATA_ROOT: ./datasets/
+
+INFERENCE_DATASET: Bosch_1
+INFERENCE_SPLIT: val
+
+# Pretrained from full MOTIP model
+RESUME_MODEL: /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/r50_deformable_detr_motip_dancetrack.pth
+RESUME_OPTIMIZER: False
+RESUME_SCHEDULER: False
+RESUME_STATES: False
+
+# MOTIP full mode (ID + tracking)
+ONLY_DETR: False
+
+# Training settings
+EPOCHS: 42
+LR: 1.0e-4
+BATCH_SIZE: 2
+ACCUMULATE_STEPS: 1
+LR_WARMUP_EPOCHS: 0
+SCHEDULER_MILESTONES: [8]
+SCHEDULER_GAMMA: 0.1
+
+# Sampling for sequence-level training
+SAMPLE_LENGTHS: [30]
+SAMPLE_INTERVALS: [4]
+
+# Save checkpoints
+SAVE_CHECKPOINT_PER_EPOCH: 2
+

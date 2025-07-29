@@ -1,0 +1,1067 @@
+nohup: ignoring input
+ipex flag is deprecated, will be removed in Accelerate v1.10. From 2.7.0, PyTorch has all needed optimizations for Intel CPU and XPU.
+The following values were not passed to `accelerate launch` and had defaults used instead:
+	`--num_machines` was set to a value of `1`
+	`--mixed_precision` was set to a value of `'no'`
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/functional.py:512: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /opt/conda/conda-bld/pytorch_1712608935911/work/aten/src/ATen/native/TensorShape.cpp:3587.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+[1;36m[INFO][0m We init the logger at /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train.
+[1;33m[WARNING][0m The wandb is not used in this experiment.
+[1;36m[INFO][0m The distributed type is NO.
+[1;32m[Runtime Config][0m super_config_path: None | seed: 42 | num_workers: 6 | prefetch_factor: 6 | device: cuda | data_root: /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data | datasets: ['Bosch_1'] | dataset_splits: ['train'] | sample_steps: [0] | sample_lengths: [30] | sample_intervals: [4] | length_per_iteration: None | aug_resize_scales: [480, 512, 544, 576, 608, 640, 672, 704, 736, 768, 800] | aug_max_size: 1440 | aug_random_resize: [400, 500, 600] | aug_random_crop_min: 384 | aug_random_crop_max: 600 | aug_max_shift_ratio: 0.06 | aug_overflow_bbox: False | aug_brightness: 0.4 | aug_contrast: 0.4 | aug_saturation: 0.4 | aug_hue: 0.0 | aug_color_jitter_v2: False | aug_num_groups: 6 | aug_trajectory_occlusion_prob: 0.5 | aug_trajectory_switch_prob: 0.5 | only_detr: False | num_classes: 1 | num_id_vocabulary: 50 | detr_framework: deformable_detr | feature_dim: 256 | ffn_dim_ratio: 2 | id_dim: 256 | head_dim: 32 | num_id_decoder_layers: 6 | id_loss_weight: 1.0 | rel_pe_length: 30 | use_aux_loss: False | use_shared_aux_head: True | use_focal_loss: False | backbone: resnet50 | dilation: False | detr_num_queries: 300 | detr_num_feature_levels: 4 | detr_aux_loss: True | detr_with_box_refine: True | detr_two_stage: False | detr_hidden_dim: 256 | detr_masks: False | detr_position_embedding: sine | detr_num_heads: 8 | detr_enc_layers: 6 | detr_dec_layers: 6 | detr_dim_feedforward: 1024 | detr_dropout: 0.0 | detr_dec_n_points: 4 | detr_enc_n_points: 4 | detr_cls_loss_coef: 2.0 | detr_bbox_loss_coef: 5.0 | detr_giou_loss_coef: 2.0 | detr_focal_alpha: 0.25 | detr_set_cost_class: 2.0 | detr_set_cost_bbox: 5.0 | detr_set_cost_giou: 2.0 | detr_criterion_batch_len: 10 | batch_size: 1 | lr: 0.0001 | lr_backbone_names: ['backbone.0'] | lr_backbone_scale: 0.1 | lr_linear_proj_names: ['reference_points', 'sampling_offsets'] | lr_linear_proj_scale: 0.05 | lr_dictionary_names: ['word_to_embed', 'embed_to_word'] | lr_dictionary_scale: 1.0 | lr_warmup_epochs: 1 | weight_decay: 0.0005 | max_clip_norm: 0.1 | epochs: 20 | scheduler_milestones: [6, 9] | scheduler_gamma: 0.1 | detr_num_train_frames: 4 | detr_num_checkpoint_frames: 5 | use_decoder_checkpoint: False | accumulate_steps: 1 | separate_clip_norm: True | use_accelerate_clip_norm: True | detr_pretrain: /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1/checkpoint_39.pth | resume_model: None | resume_optimizer: True | resume_scheduler: True | resume_states: True | inference_model: None | inference_dataset: Bosch_1 | inference_split: val | inference_mode: evaluate | inference_group: default | inference_max_longer: 1440 | inference_dtype: FP32 | assignment_protocol: object-max | miss_tolerance: 30 | det_thresh: 0.3 | newborn_thresh: 0.6 | id_thresh: 0.2 | area_thresh: 0 | inference_only_detr: False | outputs_dir: /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false | use_wandb: False | exp_owner: yai3kor | exp_project: MOTIP | exp_group: None | exp_name: r50_deformable_detr_motip_bosch_1_only_detr_false | git_version: None | save_checkpoint_per_epoch: 1 | multi_last_checkpoints: 0 | use_previous_checkpoint: False | 
+seq_005: Found 927 image files.
+seq_006: Found 930 image files.
+[1;32m[Loaded Data][0m Bosch_1.train, 2 sequences, 1857 frames.
+[1;32m[SUCCESS][0m Load the pre-trained DETR from '/media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1/checkpoint_39.pth'. 
+[1;36m[INFO][0m Start training epoch 0.
+/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/autograd/graph.py:744: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at /opt/conda/conda-bld/pytorch_1712608935911/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/conv.py:456: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at /opt/conda/conda-bld/pytorch_1712608935911/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return F.conv2d(input, weight, bias, self.stride,
+[1;36m[Metrics][0m [Epoch: 0] [0/51] [tps: 12.31s] [eta: 0:10:27] loss = 7.1115 (7.1115); detr_loss = 2.2682 (2.2682); id_loss = 4.8433 (4.8433); loss_ce = 0.0109 (0.0109); class_error = 0.0000 (0.0000); loss_bbox = 0.0020 (0.0020); loss_giou = 0.1285 (0.1285); cardinality_error = 27.3000 (27.3000); loss_ce_0 = 0.0492 (0.0492); class_error_0 = 0.0000 (0.0000); loss_bbox_0 = 0.0043 (0.0043); loss_giou_0 = 0.2812 (0.2812); cardinality_error_0 = 27.3000 (27.3000); loss_ce_1 = 0.0521 (0.0521); class_error_1 = 0.0000 (0.0000); loss_bbox_1 = 0.0022 (0.0022); loss_giou_1 = 0.1401 (0.1401); cardinality_error_1 = 27.3000 (27.3000); loss_ce_2 = 0.0283 (0.0283); class_error_2 = 0.0000 (0.0000); loss_bbox_2 = 0.0020 (0.0020); loss_giou_2 = 0.1269 (0.1269); cardinality_error_2 = 27.3000 (27.3000); loss_ce_3 = 0.0120 (0.0120); class_error_3 = 0.0000 (0.0000); loss_bbox_3 = 0.0020 (0.0020); loss_giou_3 = 0.1288 (0.1288); cardinality_error_3 = 27.3000 (27.3000); loss_ce_4 = 0.0113 (0.0113); class_error_4 = 0.0000 (0.0000); loss_bbox_4 = 0.0020 (0.0020); loss_giou_4 = 0.1284 (0.1284); cardinality_error_4 = 27.3000 (27.3000); detr_grad_norm = 59.9188 (59.9188); other_grad_norm = 22.0539 (22.0539); lr = 0.0000 (0.0000); max_cuda_mem(MB) = 11081.6914 (11081.6914); 
+[1;36m[Metrics][0m [Epoch: 0] [20/51] [tps: 2.99s] [eta: 0:1:32] loss = 7.1546 (7.1546); detr_loss = 2.8861 (2.8861); id_loss = 4.2684 (4.2684); loss_ce = 0.0166 (0.0166); class_error = -0.0000 (-0.0000); loss_bbox = 0.0023 (0.0023); loss_giou = 0.1851 (0.1851); cardinality_error = 13.4095 (13.4095); loss_ce_0 = 0.0657 (0.0657); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0037 (0.0037); loss_giou_0 = 0.2806 (0.2806); cardinality_error_0 = 13.4095 (13.4095); loss_ce_1 = 0.0471 (0.0471); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0024 (0.0024); loss_giou_1 = 0.1908 (0.1908); cardinality_error_1 = 13.4095 (13.4095); loss_ce_2 = 0.0292 (0.0292); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0023 (0.0023); loss_giou_2 = 0.1836 (0.1836); cardinality_error_2 = 13.4095 (13.4095); loss_ce_3 = 0.0197 (0.0197); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0023 (0.0023); loss_giou_3 = 0.1843 (0.1843); cardinality_error_3 = 13.4095 (13.4095); loss_ce_4 = 0.0170 (0.0170); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0023 (0.0023); loss_giou_4 = 0.1848 (0.1848); cardinality_error_4 = 13.4095 (13.4095); detr_grad_norm = 342.0224 (342.0224); other_grad_norm = 20.0762 (20.0762); lr = 0.0000 (0.0000); max_cuda_mem(MB) = 12251.6074 (12251.6074); 
+[1;36m[Metrics][0m [Epoch: 0] [40/51] [tps: 2.69s] [eta: 0:0:29] loss = 7.1931 (7.1931); detr_loss = 2.9495 (2.9495); id_loss = 4.2436 (4.2436); loss_ce = 0.0177 (0.0177); class_error = -0.0000 (-0.0000); loss_bbox = 0.0024 (0.0024); loss_giou = 0.1882 (0.1882); cardinality_error = 12.5024 (12.5024); loss_ce_0 = 0.0584 (0.0584); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0039 (0.0039); loss_giou_0 = 0.2992 (0.2992); cardinality_error_0 = 12.5024 (12.5024); loss_ce_1 = 0.0439 (0.0439); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0026 (0.0026); loss_giou_1 = 0.1978 (0.1978); cardinality_error_1 = 12.5024 (12.5024); loss_ce_2 = 0.0292 (0.0292); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0024 (0.0024); loss_giou_2 = 0.1873 (0.1873); cardinality_error_2 = 12.5024 (12.5024); loss_ce_3 = 0.0199 (0.0199); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0024 (0.0024); loss_giou_3 = 0.1869 (0.1869); cardinality_error_3 = 12.5024 (12.5024); loss_ce_4 = 0.0182 (0.0182); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0024 (0.0024); loss_giou_4 = 0.1877 (0.1877); cardinality_error_4 = 12.5024 (12.5024); detr_grad_norm = 206.9184 (206.9184); other_grad_norm = 17.5744 (17.5744); lr = 0.0001 (0.0001); max_cuda_mem(MB) = 12362.6211 (12362.6211); 
+[1;36m[Metrics][0m [Finish epoch: 0] [Time: 0:2:14] loss = 7.1931; detr_loss = 2.9495; id_loss = 4.2436; loss_ce = 0.0177; class_error = -0.0000; loss_bbox = 0.0024; loss_giou = 0.1882; cardinality_error = 12.5024; loss_ce_0 = 0.0584; class_error_0 = -0.0000; loss_bbox_0 = 0.0039; loss_giou_0 = 0.2992; cardinality_error_0 = 12.5024; loss_ce_1 = 0.0439; class_error_1 = -0.0000; loss_bbox_1 = 0.0026; loss_giou_1 = 0.1978; cardinality_error_1 = 12.5024; loss_ce_2 = 0.0292; class_error_2 = -0.0000; loss_bbox_2 = 0.0024; loss_giou_2 = 0.1873; cardinality_error_2 = 12.5024; loss_ce_3 = 0.0199; class_error_3 = -0.0000; loss_bbox_3 = 0.0024; loss_giou_3 = 0.1869; cardinality_error_3 = 12.5024; loss_ce_4 = 0.0182; class_error_4 = -0.0000; loss_bbox_4 = 0.0024; loss_giou_4 = 0.1877; cardinality_error_4 = 12.5024; detr_grad_norm = 206.9184; other_grad_norm = 17.5744; lr = 0.0001; max_cuda_mem(MB) = 12362.6211; 
+seq_007: Found 927 image files.
+seq_008: Found 929 image files.
+seq_014: Found 929 image files.
+[1;36m[INFO][0m Submitting sequence seq_007 with 927 frames.
+[1;32m[SUCCESS][0m Submit sequence seq_007 done, FPS: 8.66. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_0/tracker/seq_007.txt.
+[1;36m[INFO][0m Submitting sequence seq_008 with 929 frames.
+[1;32m[SUCCESS][0m Submit sequence seq_008 done, FPS: 8.42. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_0/tracker/seq_008.txt.
+[1;36m[INFO][0m Submitting sequence seq_014 with 929 frames.
+
+Eval Config:
+USE_PARALLEL         : True                          
+NUM_PARALLEL_CORES   : 8                             
+BREAK_ON_ERROR       : True                          
+RETURN_ON_ERROR      : False                         
+LOG_ON_ERROR         : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/TrackEval/error_log.txt
+PRINT_RESULTS        : True                          
+PRINT_ONLY_COMBINED  : False                         
+PRINT_CONFIG         : True                          
+TIME_PROGRESS        : True                          
+DISPLAY_LESS_PROGRESS : False                         
+OUTPUT_SUMMARY       : True                          
+OUTPUT_EMPTY_CLASSES : True                          
+OUTPUT_DETAILED      : True                          
+PLOT_CURVES          : False                         
+
+MotChallenge2DBox Config:
+PRINT_CONFIG         : True                          
+GT_FOLDER            : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data/Bosch_1/val
+TRACKERS_FOLDER      : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_0/tracker
+OUTPUT_FOLDER        : None                          
+TRACKERS_TO_EVAL     : ['']                          
+CLASSES_TO_EVAL      : ['pedestrian']                
+BENCHMARK            : MOT17                         
+SPLIT_TO_EVAL        : val                           
+INPUT_AS_ZIP         : False                         
+DO_PREPROC           : False                         
+TRACKER_SUB_FOLDER   :                               
+OUTPUT_SUB_FOLDER    :                               
+TRACKER_DISPLAY_NAMES : None                          
+SEQMAP_FOLDER        : None                          
+SEQMAP_FILE          : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data/Bosch_1/val_seqmap.txt
+SEQ_INFO             : None                          
+GT_LOC_FORMAT        : {gt_folder}/{seq}/gt/gt.txt   
+SKIP_SPLIT_FOL       : True                          
+
+CLEAR Config:
+METRICS              : ['HOTA', 'CLEAR', 'Identity'] 
+THRESHOLD            : 0.5                           
+PRINT_CONFIG         : True                          
+
+Identity Config:
+METRICS              : ['HOTA', 'CLEAR', 'Identity'] 
+THRESHOLD            : 0.5                           
+PRINT_CONFIG         : True                          
+
+Evaluating 1 tracker(s) on 2 sequence(s) for 1 class(es) on MotChallenge2DBox dataset using the following metrics: HOTA, CLEAR, Identity, Count
+
+
+Evaluating 
+
+
+All sequences for  finished in 0.38 seconds
+
+HOTA: -pedestrian                  HOTA      DetA      AssA      DetRe     DetPr     AssRe     AssPr     LocA      RHOTA     HOTA(0)   LocA(0)   HOTALocA(0)
+seq_007                            6.8365    37.935    1.334     43.846    67.386    1.334     100       84.887    7.3907    7.8282    82.576    6.4642    
+seq_008                            5.2118    19.716    1.4566    25.655    42.614    1.4566    94.737    81.115    5.9673    6.2967    75.657    4.7639    
+COMBINED                           5.8612    26.248    1.4256    32.702    52.671    1.4256    100       82.95     6.5714    6.8878    79.094    5.4479    
+
+CLEAR: -pedestrian                 MOTA      MOTP      MODA      CLR_Re    CLR_Pr    MTR       PTR       MLR       sMOTA     CLR_TP    CLR_FN    CLR_FP    IDSW      MT        PT        ML        Frag      
+seq_007                            -12.267   83.012    38.133    51.6      79.303    10        70        20        -21.033   387       363       101       378       1         7         2         12        
+seq_008                            -28.331   78.794    0.84317   30.523    50.7      0         55.556    44.444    -34.803   362       824       352       346       0         10        8         34        
+COMBINED                           -22.107   80.973    15.289    38.688    62.313    3.5714    60.714    35.714    -29.469   749       1187      453       724       1         17        10        46        
+
+Identity: -pedestrian              IDF1      IDR       IDP       IDTP      IDFN      IDFP      
+seq_007                            1.454     1.2       1.8443    9         741       479       
+seq_008                            1.6842    1.3491    2.2409    16        1170      698       
+COMBINED                           1.5934    1.2913    2.0799    25        1911      1177      
+
+Count: -pedestrian                 Dets      GT_Dets   IDs       GT_IDs    
+seq_007                            488       750       488       10        
+seq_008                            714       1186      714       18        
+COMBINED                           1202      1936      1202      28        
+[1;32m[SUCCESS][0m Submit sequence seq_014 done, FPS: 8.48. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_0/tracker/seq_014.txt.
+[1;36m[INFO][0m Start evaluation...
+[1;32m[SUCCESS][0m Evaluation script is done.
+[1;32m[SUCCESS][0m Get evaluation metrics from /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_0/tracker/pedestrian_summary.txt.
+[1;36m[Metrics][0m [Eval epoch: 0] HOTA = 5.8612; DetA = 26.2480; AssA = 1.4256; DetPr = 52.6710; DetRe = 32.7020; AssPr = 100.0000; AssRe = 1.4256; MOTA = -22.1070; IDF1 = 1.5934; 
+[1;32m[SUCCESS][0m Finish training epoch 0.
+[1;36m[INFO][0m Start training epoch 1.
+/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/autograd/graph.py:744: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at /opt/conda/conda-bld/pytorch_1712608935911/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/conv.py:456: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at /opt/conda/conda-bld/pytorch_1712608935911/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return F.conv2d(input, weight, bias, self.stride,
+[1;36m[Metrics][0m [Epoch: 1] [0/55] [tps: 8.89s] [eta: 0:8:9] loss = 7.6516 (7.6516); detr_loss = 3.8993 (3.8993); id_loss = 3.7523 (3.7523); loss_ce = 0.0395 (0.0395); class_error = 0.0000 (0.0000); loss_bbox = 0.0028 (0.0028); loss_giou = 0.2616 (0.2616); cardinality_error = 3.6000 (3.6000); loss_ce_0 = 0.0485 (0.0485); class_error_0 = 0.0000 (0.0000); loss_bbox_0 = 0.0048 (0.0048); loss_giou_0 = 0.3717 (0.3717); cardinality_error_0 = 3.6000 (3.6000); loss_ce_1 = 0.0492 (0.0492); class_error_1 = 0.0000 (0.0000); loss_bbox_1 = 0.0025 (0.0025); loss_giou_1 = 0.2391 (0.2391); cardinality_error_1 = 3.6000 (3.6000); loss_ce_2 = 0.0366 (0.0366); class_error_2 = 0.0000 (0.0000); loss_bbox_2 = 0.0026 (0.0026); loss_giou_2 = 0.2466 (0.2466); cardinality_error_2 = 3.6000 (3.6000); loss_ce_3 = 0.0477 (0.0477); class_error_3 = 0.0000 (0.0000); loss_bbox_3 = 0.0027 (0.0027); loss_giou_3 = 0.2629 (0.2629); cardinality_error_3 = 3.6000 (3.6000); loss_ce_4 = 0.0396 (0.0396); class_error_4 = 0.0000 (0.0000); loss_bbox_4 = 0.0028 (0.0028); loss_giou_4 = 0.2613 (0.2613); cardinality_error_4 = 3.6000 (3.6000); detr_grad_norm = 36.5288 (36.5288); other_grad_norm = 11.7899 (11.7899); lr = 0.0001 (0.0001); max_cuda_mem(MB) = 12362.6211 (12362.6211); 
+[1;36m[Metrics][0m [Epoch: 1] [20/55] [tps: 2.91s] [eta: 0:1:41] loss = 7.6906 (7.6906); detr_loss = 3.6239 (3.6239); id_loss = 4.0667 (4.0667); loss_ce = 0.0222 (0.0222); class_error = -0.0000 (-0.0000); loss_bbox = 0.0033 (0.0033); loss_giou = 0.2313 (0.2313); cardinality_error = 13.3333 (13.3333); loss_ce_0 = 0.0683 (0.0683); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0058 (0.0058); loss_giou_0 = 0.3775 (0.3775); cardinality_error_0 = 13.3333 (13.3333); loss_ce_1 = 0.0535 (0.0535); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0034 (0.0034); loss_giou_1 = 0.2372 (0.2372); cardinality_error_1 = 13.3333 (13.3333); loss_ce_2 = 0.0328 (0.0328); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0032 (0.0032); loss_giou_2 = 0.2272 (0.2272); cardinality_error_2 = 13.3333 (13.3333); loss_ce_3 = 0.0252 (0.0252); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0032 (0.0032); loss_giou_3 = 0.2287 (0.2287); cardinality_error_3 = 13.3333 (13.3333); loss_ce_4 = 0.0233 (0.0233); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0033 (0.0033); loss_giou_4 = 0.2293 (0.2293); cardinality_error_4 = 13.3333 (13.3333); detr_grad_norm = 45.2321 (45.2321); other_grad_norm = 6.7650 (6.7650); lr = 0.0001 (0.0001); max_cuda_mem(MB) = 12362.6211 (12362.6211); 
+[1;36m[Metrics][0m [Epoch: 1] [40/55] [tps: 2.86s] [eta: 0:0:42] loss = 7.7388 (7.7388); detr_loss = 3.7093 (3.7093); id_loss = 4.0296 (4.0296); loss_ce = 0.0242 (0.0242); class_error = -0.0000 (-0.0000); loss_bbox = 0.0030 (0.0030); loss_giou = 0.2331 (0.2331); cardinality_error = 15.5512 (15.5512); loss_ce_0 = 0.0663 (0.0663); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0056 (0.0056); loss_giou_0 = 0.3922 (0.3922); cardinality_error_0 = 15.5512 (15.5512); loss_ce_1 = 0.0593 (0.0593); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0032 (0.0032); loss_giou_1 = 0.2453 (0.2453); cardinality_error_1 = 15.5512 (15.5512); loss_ce_2 = 0.0393 (0.0393); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0030 (0.0030); loss_giou_2 = 0.2295 (0.2295); cardinality_error_2 = 15.5512 (15.5512); loss_ce_3 = 0.0272 (0.0272); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0030 (0.0030); loss_giou_3 = 0.2302 (0.2302); cardinality_error_3 = 15.5512 (15.5512); loss_ce_4 = 0.0248 (0.0248); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0030 (0.0030); loss_giou_4 = 0.2313 (0.2313); cardinality_error_4 = 15.5512 (15.5512); detr_grad_norm = 58.9726 (58.9726); other_grad_norm = 5.5371 (5.5371); lr = 0.0001 (0.0001); max_cuda_mem(MB) = 12362.6211 (12362.6211); 
+[1;36m[Metrics][0m [Finish epoch: 1] [Time: 0:2:35] loss = 7.7388; detr_loss = 3.7093; id_loss = 4.0296; loss_ce = 0.0242; class_error = -0.0000; loss_bbox = 0.0030; loss_giou = 0.2331; cardinality_error = 15.5512; loss_ce_0 = 0.0663; class_error_0 = -0.0000; loss_bbox_0 = 0.0056; loss_giou_0 = 0.3922; cardinality_error_0 = 15.5512; loss_ce_1 = 0.0593; class_error_1 = -0.0000; loss_bbox_1 = 0.0032; loss_giou_1 = 0.2453; cardinality_error_1 = 15.5512; loss_ce_2 = 0.0393; class_error_2 = -0.0000; loss_bbox_2 = 0.0030; loss_giou_2 = 0.2295; cardinality_error_2 = 15.5512; loss_ce_3 = 0.0272; class_error_3 = -0.0000; loss_bbox_3 = 0.0030; loss_giou_3 = 0.2302; cardinality_error_3 = 15.5512; loss_ce_4 = 0.0248; class_error_4 = -0.0000; loss_bbox_4 = 0.0030; loss_giou_4 = 0.2313; cardinality_error_4 = 15.5512; detr_grad_norm = 58.9726; other_grad_norm = 5.5371; lr = 0.0001; max_cuda_mem(MB) = 12362.6211; 
+seq_007: Found 927 image files.
+seq_008: Found 929 image files.
+seq_014: Found 929 image files.
+[1;36m[INFO][0m Submitting sequence seq_007 with 927 frames.
+[1;32m[SUCCESS][0m Submit sequence seq_007 done, FPS: 8.55. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_1/tracker/seq_007.txt.
+[1;36m[INFO][0m Submitting sequence seq_008 with 929 frames.
+[1;32m[SUCCESS][0m Submit sequence seq_008 done, FPS: 8.40. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_1/tracker/seq_008.txt.
+[1;36m[INFO][0m Submitting sequence seq_014 with 929 frames.
+
+Eval Config:
+USE_PARALLEL         : True                          
+NUM_PARALLEL_CORES   : 8                             
+BREAK_ON_ERROR       : True                          
+RETURN_ON_ERROR      : False                         
+LOG_ON_ERROR         : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/TrackEval/error_log.txt
+PRINT_RESULTS        : True                          
+PRINT_ONLY_COMBINED  : False                         
+PRINT_CONFIG         : True                          
+TIME_PROGRESS        : True                          
+DISPLAY_LESS_PROGRESS : False                         
+OUTPUT_SUMMARY       : True                          
+OUTPUT_EMPTY_CLASSES : True                          
+OUTPUT_DETAILED      : True                          
+PLOT_CURVES          : False                         
+
+MotChallenge2DBox Config:
+PRINT_CONFIG         : True                          
+GT_FOLDER            : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data/Bosch_1/val
+TRACKERS_FOLDER      : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_1/tracker
+OUTPUT_FOLDER        : None                          
+TRACKERS_TO_EVAL     : ['']                          
+CLASSES_TO_EVAL      : ['pedestrian']                
+BENCHMARK            : MOT17                         
+SPLIT_TO_EVAL        : val                           
+INPUT_AS_ZIP         : False                         
+DO_PREPROC           : False                         
+TRACKER_SUB_FOLDER   :                               
+OUTPUT_SUB_FOLDER    :                               
+TRACKER_DISPLAY_NAMES : None                          
+SEQMAP_FOLDER        : None                          
+SEQMAP_FILE          : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data/Bosch_1/val_seqmap.txt
+SEQ_INFO             : None                          
+GT_LOC_FORMAT        : {gt_folder}/{seq}/gt/gt.txt   
+SKIP_SPLIT_FOL       : True                          
+
+CLEAR Config:
+METRICS              : ['HOTA', 'CLEAR', 'Identity'] 
+THRESHOLD            : 0.5                           
+PRINT_CONFIG         : True                          
+
+Identity Config:
+METRICS              : ['HOTA', 'CLEAR', 'Identity'] 
+THRESHOLD            : 0.5                           
+PRINT_CONFIG         : True                          
+
+Evaluating 1 tracker(s) on 2 sequence(s) for 1 class(es) on MotChallenge2DBox dataset using the following metrics: HOTA, CLEAR, Identity, Count
+
+
+Evaluating 
+
+
+All sequences for  finished in 0.48 seconds
+
+HOTA: -pedestrian                  HOTA      DetA      AssA      DetRe     DetPr     AssRe     AssPr     LocA      RHOTA     HOTA(0)   LocA(0)   HOTALocA(0)
+seq_007                            6.74      37.41     1.3314    47.895    57.199    1.3314    100       81.946    7.6834    8.1277    77.241    6.2779    
+seq_008                            5.4138    20.793    1.5468    31.969    34.881    1.5468    100       79.817    6.7505    6.6404    72.596    4.8207    
+COMBINED                           5.9062    26.508    1.4404    38.139    43.054    1.4404    100       80.814    7.1276    7.1867    74.78     5.3742    
+
+CLEAR: -pedestrian                 MOTA      MOTP      MODA      CLR_Re    CLR_Pr    MTR       PTR       MLR       sMOTA     CLR_TP    CLR_FN    CLR_FP    IDSW      MT        PT        ML        Frag      
+seq_007                            -24.933   79.77     31.2      57.467    68.631    10        70        20        -36.559   431       319       197       421       1         7         2         15        
+seq_008                            -53.12    77.942    -17.454   37.099    40.478    5.5556    50        44.444    -61.303   440       746       647       423       1         9         8         40        
+COMBINED                           -42.2     78.847    1.3946    44.99     50.787    7.1429    57.143    35.714    -51.717   871       1065      844       844       2         16        10        55        
+
+Identity: -pedestrian              IDF1      IDR       IDP       IDTP      IDFN      IDFP      
+seq_007                            1.4514    1.3333    1.5924    10        740       618       
+seq_008                            1.4958    1.4334    1.5639    17        1169      1070      
+COMBINED                           1.479     1.3946    1.5743    27        1909      1688      
+
+Count: -pedestrian                 Dets      GT_Dets   IDs       GT_IDs    
+seq_007                            628       750       628       10        
+seq_008                            1087      1186      1087      18        
+COMBINED                           1715      1936      1715      28        
+[1;32m[SUCCESS][0m Submit sequence seq_014 done, FPS: 8.44. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_1/tracker/seq_014.txt.
+[1;36m[INFO][0m Start evaluation...
+[1;32m[SUCCESS][0m Evaluation script is done.
+[1;32m[SUCCESS][0m Get evaluation metrics from /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_1/tracker/pedestrian_summary.txt.
+[1;36m[Metrics][0m [Eval epoch: 1] HOTA = 5.9062; DetA = 26.5080; AssA = 1.4404; DetPr = 43.0540; DetRe = 38.1390; AssPr = 100.0000; AssRe = 1.4404; MOTA = -42.2000; IDF1 = 1.4790; 
+[1;32m[SUCCESS][0m Finish training epoch 1.
+[1;36m[INFO][0m Start training epoch 2.
+/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/autograd/graph.py:744: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at /opt/conda/conda-bld/pytorch_1712608935911/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/conv.py:456: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at /opt/conda/conda-bld/pytorch_1712608935911/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return F.conv2d(input, weight, bias, self.stride,
+[1;36m[Metrics][0m [Epoch: 2] [0/48] [tps: 6.96s] [eta: 0:5:34] loss = 7.2411 (7.2411); detr_loss = 3.2239 (3.2239); id_loss = 4.0172 (4.0172); loss_ce = 0.0135 (0.0135); class_error = 0.0000 (0.0000); loss_bbox = 0.0035 (0.0035); loss_giou = 0.2116 (0.2116); cardinality_error = 7.7000 (7.7000); loss_ce_0 = 0.0823 (0.0823); class_error_0 = 0.0000 (0.0000); loss_bbox_0 = 0.0054 (0.0054); loss_giou_0 = 0.3004 (0.3004); cardinality_error_0 = 7.7000 (7.7000); loss_ce_1 = 0.0567 (0.0567); class_error_1 = 0.0000 (0.0000); loss_bbox_1 = 0.0036 (0.0036); loss_giou_1 = 0.2155 (0.2155); cardinality_error_1 = 7.7000 (7.7000); loss_ce_2 = 0.0209 (0.0209); class_error_2 = 0.0000 (0.0000); loss_bbox_2 = 0.0035 (0.0035); loss_giou_2 = 0.2070 (0.2070); cardinality_error_2 = 7.7000 (7.7000); loss_ce_3 = 0.0162 (0.0162); class_error_3 = 0.0000 (0.0000); loss_bbox_3 = 0.0035 (0.0035); loss_giou_3 = 0.2081 (0.2081); cardinality_error_3 = 7.7000 (7.7000); loss_ce_4 = 0.0122 (0.0122); class_error_4 = 0.0000 (0.0000); loss_bbox_4 = 0.0035 (0.0035); loss_giou_4 = 0.2098 (0.2098); cardinality_error_4 = 7.7000 (7.7000); detr_grad_norm = 31.8548 (31.8548); other_grad_norm = 4.0694 (4.0694); lr = 0.0001 (0.0001); max_cuda_mem(MB) = 12362.6211 (12362.6211); 
+[1;36m[Metrics][0m [Epoch: 2] [20/48] [tps: 2.76s] [eta: 0:1:17] loss = 7.5907 (7.5907); detr_loss = 3.6326 (3.6326); id_loss = 3.9582 (3.9582); loss_ce = 0.0289 (0.0289); class_error = -0.0000 (-0.0000); loss_bbox = 0.0028 (0.0028); loss_giou = 0.2164 (0.2164); cardinality_error = 16.0952 (16.0952); loss_ce_0 = 0.0681 (0.0681); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0059 (0.0059); loss_giou_0 = 0.4012 (0.4012); cardinality_error_0 = 16.0952 (16.0952); loss_ce_1 = 0.0655 (0.0655); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0031 (0.0031); loss_giou_1 = 0.2333 (0.2333); cardinality_error_1 = 16.0952 (16.0952); loss_ce_2 = 0.0493 (0.0493); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0028 (0.0028); loss_giou_2 = 0.2116 (0.2116); cardinality_error_2 = 16.0952 (16.0952); loss_ce_3 = 0.0326 (0.0326); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0028 (0.0028); loss_giou_3 = 0.2143 (0.2143); cardinality_error_3 = 16.0952 (16.0952); loss_ce_4 = 0.0298 (0.0298); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0028 (0.0028); loss_giou_4 = 0.2152 (0.2152); cardinality_error_4 = 16.0952 (16.0952); detr_grad_norm = 45.6847 (45.6847); other_grad_norm = 3.4551 (3.4551); lr = 0.0001 (0.0001); max_cuda_mem(MB) = 12362.6211 (12362.6211); 
+[1;36m[Metrics][0m [Epoch: 2] [40/48] [tps: 2.65s] [eta: 0:0:21] loss = 7.4842 (7.4842); detr_loss = 3.5198 (3.5198); id_loss = 3.9644 (3.9644); loss_ce = 0.0244 (0.0244); class_error = -0.0000 (-0.0000); loss_bbox = 0.0029 (0.0029); loss_giou = 0.2097 (0.2097); cardinality_error = 15.8122 (15.8122); loss_ce_0 = 0.0767 (0.0767); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0057 (0.0057); loss_giou_0 = 0.3843 (0.3843); cardinality_error_0 = 15.8122 (15.8122); loss_ce_1 = 0.0661 (0.0661); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0031 (0.0031); loss_giou_1 = 0.2262 (0.2262); cardinality_error_1 = 15.8122 (15.8122); loss_ce_2 = 0.0462 (0.0462); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0029 (0.0029); loss_giou_2 = 0.2058 (0.2058); cardinality_error_2 = 15.8122 (15.8122); loss_ce_3 = 0.0285 (0.0285); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0029 (0.0029); loss_giou_3 = 0.2076 (0.2076); cardinality_error_3 = 15.8122 (15.8122); loss_ce_4 = 0.0252 (0.0252); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0029 (0.0029); loss_giou_4 = 0.2085 (0.2085); cardinality_error_4 = 15.8122 (15.8122); detr_grad_norm = 138.8315 (138.8315); other_grad_norm = 3.5280 (3.5280); lr = 0.0001 (0.0001); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Finish epoch: 2] [Time: 0:2:6] loss = 7.4842; detr_loss = 3.5198; id_loss = 3.9644; loss_ce = 0.0244; class_error = -0.0000; loss_bbox = 0.0029; loss_giou = 0.2097; cardinality_error = 15.8122; loss_ce_0 = 0.0767; class_error_0 = -0.0000; loss_bbox_0 = 0.0057; loss_giou_0 = 0.3843; cardinality_error_0 = 15.8122; loss_ce_1 = 0.0661; class_error_1 = -0.0000; loss_bbox_1 = 0.0031; loss_giou_1 = 0.2262; cardinality_error_1 = 15.8122; loss_ce_2 = 0.0462; class_error_2 = -0.0000; loss_bbox_2 = 0.0029; loss_giou_2 = 0.2058; cardinality_error_2 = 15.8122; loss_ce_3 = 0.0285; class_error_3 = -0.0000; loss_bbox_3 = 0.0029; loss_giou_3 = 0.2076; cardinality_error_3 = 15.8122; loss_ce_4 = 0.0252; class_error_4 = -0.0000; loss_bbox_4 = 0.0029; loss_giou_4 = 0.2085; cardinality_error_4 = 15.8122; detr_grad_norm = 138.8315; other_grad_norm = 3.5280; lr = 0.0001; max_cuda_mem(MB) = 12368.1777; 
+seq_007: Found 927 image files.
+seq_008: Found 929 image files.
+seq_014: Found 929 image files.
+[1;36m[INFO][0m Submitting sequence seq_007 with 927 frames.
+[1;32m[SUCCESS][0m Submit sequence seq_007 done, FPS: 8.56. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_2/tracker/seq_007.txt.
+[1;36m[INFO][0m Submitting sequence seq_008 with 929 frames.
+[1;32m[SUCCESS][0m Submit sequence seq_008 done, FPS: 8.32. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_2/tracker/seq_008.txt.
+[1;36m[INFO][0m Submitting sequence seq_014 with 929 frames.
+
+Eval Config:
+USE_PARALLEL         : True                          
+NUM_PARALLEL_CORES   : 8                             
+BREAK_ON_ERROR       : True                          
+RETURN_ON_ERROR      : False                         
+LOG_ON_ERROR         : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/TrackEval/error_log.txt
+PRINT_RESULTS        : True                          
+PRINT_ONLY_COMBINED  : False                         
+PRINT_CONFIG         : True                          
+TIME_PROGRESS        : True                          
+DISPLAY_LESS_PROGRESS : False                         
+OUTPUT_SUMMARY       : True                          
+OUTPUT_EMPTY_CLASSES : True                          
+OUTPUT_DETAILED      : True                          
+PLOT_CURVES          : False                         
+
+MotChallenge2DBox Config:
+PRINT_CONFIG         : True                          
+GT_FOLDER            : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data/Bosch_1/val
+TRACKERS_FOLDER      : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_2/tracker
+OUTPUT_FOLDER        : None                          
+TRACKERS_TO_EVAL     : ['']                          
+CLASSES_TO_EVAL      : ['pedestrian']                
+BENCHMARK            : MOT17                         
+SPLIT_TO_EVAL        : val                           
+INPUT_AS_ZIP         : False                         
+DO_PREPROC           : False                         
+TRACKER_SUB_FOLDER   :                               
+OUTPUT_SUB_FOLDER    :                               
+TRACKER_DISPLAY_NAMES : None                          
+SEQMAP_FOLDER        : None                          
+SEQMAP_FILE          : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data/Bosch_1/val_seqmap.txt
+SEQ_INFO             : None                          
+GT_LOC_FORMAT        : {gt_folder}/{seq}/gt/gt.txt   
+SKIP_SPLIT_FOL       : True                          
+
+CLEAR Config:
+METRICS              : ['HOTA', 'CLEAR', 'Identity'] 
+THRESHOLD            : 0.5                           
+PRINT_CONFIG         : True                          
+
+Identity Config:
+METRICS              : ['HOTA', 'CLEAR', 'Identity'] 
+THRESHOLD            : 0.5                           
+PRINT_CONFIG         : True                          
+
+Evaluating 1 tracker(s) on 2 sequence(s) for 1 class(es) on MotChallenge2DBox dataset using the following metrics: HOTA, CLEAR, Identity, Count
+
+
+Evaluating 
+
+
+All sequences for  finished in 0.61 seconds
+
+HOTA: -pedestrian                  HOTA      DetA      AssA      DetRe     DetPr     AssRe     AssPr     LocA      RHOTA     HOTA(0)   LocA(0)   HOTALocA(0)
+seq_007                            6.4131    34.837    1.3154    44.014    55.95     1.3154    100       80.7      7.2595    7.8539    76.026    5.971     
+seq_008                            5.321     20.235    1.5645    29.928    35.637    1.5645    100       78.622    6.5084    6.6768    70.3      4.6937    
+COMBINED                           5.7285    25.337    1.4435    35.385    43.194    1.4435    100       79.575    6.8107    7.113     72.942    5.1884    
+
+CLEAR: -pedestrian                 MOTA      MOTP      MODA      CLR_Re    CLR_Pr    MTR       PTR       MLR       sMOTA     CLR_TP    CLR_FN    CLR_FP    IDSW      MT        PT        ML        Frag      
+seq_007                            -23.733   78.461    28.533    53.6      68.136    10        70        20        -35.278   402       348       188       392       1         7         2         21        
+seq_008                            -48.061   77.148    -15.008   34.486    41.064    0         55.556    44.444    -55.941   409       777       587       392       0         10        8         49        
+COMBINED                           -38.636   77.799    1.8595    41.89     51.135    3.5714    60.714    35.714    -47.936   811       1125      775       784       1         17        10        70        
+
+Identity: -pedestrian              IDF1      IDR       IDP       IDTP      IDFN      IDFP      
+seq_007                            1.4925    1.3333    1.6949    10        740       580       
+seq_008                            1.5582    1.4334    1.7068    17        1169      979       
+COMBINED                           1.5332    1.3946    1.7024    27        1909      1559      
+
+Count: -pedestrian                 Dets      GT_Dets   IDs       GT_IDs    
+seq_007                            590       750       590       10        
+seq_008                            996       1186      996       18        
+COMBINED                           1586      1936      1586      28        
+[1;32m[SUCCESS][0m Submit sequence seq_014 done, FPS: 8.46. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_2/tracker/seq_014.txt.
+[1;36m[INFO][0m Start evaluation...
+[1;32m[SUCCESS][0m Evaluation script is done.
+[1;32m[SUCCESS][0m Get evaluation metrics from /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_2/tracker/pedestrian_summary.txt.
+[1;36m[Metrics][0m [Eval epoch: 2] HOTA = 5.7285; DetA = 25.3370; AssA = 1.4435; DetPr = 43.1940; DetRe = 35.3850; AssPr = 100.0000; AssRe = 1.4435; MOTA = -38.6360; IDF1 = 1.5332; 
+[1;32m[SUCCESS][0m Finish training epoch 2.
+[1;36m[INFO][0m Start training epoch 3.
+/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/conv.py:456: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at /opt/conda/conda-bld/pytorch_1712608935911/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return F.conv2d(input, weight, bias, self.stride,
+/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/autograd/graph.py:744: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at /opt/conda/conda-bld/pytorch_1712608935911/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[1;36m[Metrics][0m [Epoch: 3] [0/55] [tps: 9.32s] [eta: 0:8:32] loss = 6.9038 (6.9038); detr_loss = 3.1213 (3.1213); id_loss = 3.7825 (3.7825); loss_ce = 0.0000 (0.0000); class_error = 0.0000 (0.0000); loss_bbox = 0.0042 (0.0042); loss_giou = 0.2469 (0.2469); cardinality_error = 6.0000 (6.0000); loss_ce_0 = 0.0521 (0.0521); class_error_0 = 0.0000 (0.0000); loss_bbox_0 = 0.0040 (0.0040); loss_giou_0 = 0.2992 (0.2992); cardinality_error_0 = 6.0000 (6.0000); loss_ce_1 = 0.0051 (0.0051); class_error_1 = 0.0000 (0.0000); loss_bbox_1 = 0.0037 (0.0037); loss_giou_1 = 0.2131 (0.2131); cardinality_error_1 = 6.0000 (6.0000); loss_ce_2 = 0.0026 (0.0026); class_error_2 = 0.0000 (0.0000); loss_bbox_2 = 0.0038 (0.0038); loss_giou_2 = 0.2182 (0.2182); cardinality_error_2 = 6.0000 (6.0000); loss_ce_3 = 0.0001 (0.0001); class_error_3 = 0.0000 (0.0000); loss_bbox_3 = 0.0039 (0.0039); loss_giou_3 = 0.2254 (0.2254); cardinality_error_3 = 6.0000 (6.0000); loss_ce_4 = 0.0000 (0.0000); class_error_4 = 0.0000 (0.0000); loss_bbox_4 = 0.0041 (0.0041); loss_giou_4 = 0.2385 (0.2385); cardinality_error_4 = 6.0000 (6.0000); detr_grad_norm = 68.1741 (68.1741); other_grad_norm = 3.5862 (3.5862); lr = 0.0001 (0.0001); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Epoch: 3] [20/55] [tps: 3.12s] [eta: 0:1:49] loss = 7.5100 (7.5100); detr_loss = 3.5651 (3.5651); id_loss = 3.9449 (3.9449); loss_ce = 0.0203 (0.0203); class_error = -0.0000 (-0.0000); loss_bbox = 0.0035 (0.0035); loss_giou = 0.2109 (0.2109); cardinality_error = 18.7238 (18.7238); loss_ce_0 = 0.0774 (0.0774); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0063 (0.0063); loss_giou_0 = 0.3939 (0.3939); cardinality_error_0 = 18.7238 (18.7238); loss_ce_1 = 0.0704 (0.0704); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0037 (0.0037); loss_giou_1 = 0.2290 (0.2290); cardinality_error_1 = 18.7238 (18.7238); loss_ce_2 = 0.0464 (0.0464); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0034 (0.0034); loss_giou_2 = 0.2105 (0.2105); cardinality_error_2 = 18.7238 (18.7238); loss_ce_3 = 0.0244 (0.0244); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0034 (0.0034); loss_giou_3 = 0.2095 (0.2095); cardinality_error_3 = 18.7238 (18.7238); loss_ce_4 = 0.0207 (0.0207); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0034 (0.0034); loss_giou_4 = 0.2101 (0.2101); cardinality_error_4 = 18.7238 (18.7238); detr_grad_norm = 53.5616 (53.5616); other_grad_norm = 2.5682 (2.5682); lr = 0.0001 (0.0001); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Epoch: 3] [40/55] [tps: 2.93s] [eta: 0:0:43] loss = 7.8308 (7.8308); detr_loss = 3.8939 (3.8939); id_loss = 3.9370 (3.9370); loss_ce = 0.0265 (0.0265); class_error = -0.0000 (-0.0000); loss_bbox = 0.0037 (0.0037); loss_giou = 0.2332 (0.2332); cardinality_error = 17.6561 (17.6561); loss_ce_0 = 0.0810 (0.0810); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0069 (0.0069); loss_giou_0 = 0.4099 (0.4099); cardinality_error_0 = 17.6561 (17.6561); loss_ce_1 = 0.0732 (0.0732); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0043 (0.0043); loss_giou_1 = 0.2528 (0.2528); cardinality_error_1 = 17.6561 (17.6561); loss_ce_2 = 0.0527 (0.0527); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0037 (0.0037); loss_giou_2 = 0.2318 (0.2318); cardinality_error_2 = 17.6561 (17.6561); loss_ce_3 = 0.0309 (0.0309); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0037 (0.0037); loss_giou_3 = 0.2313 (0.2313); cardinality_error_3 = 17.6561 (17.6561); loss_ce_4 = 0.0266 (0.0266); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0037 (0.0037); loss_giou_4 = 0.2322 (0.2322); cardinality_error_4 = 17.6561 (17.6561); detr_grad_norm = 56.5873 (56.5873); other_grad_norm = 2.5150 (2.5150); lr = 0.0001 (0.0001); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Finish epoch: 3] [Time: 0:2:30] loss = 7.8308; detr_loss = 3.8939; id_loss = 3.9370; loss_ce = 0.0265; class_error = -0.0000; loss_bbox = 0.0037; loss_giou = 0.2332; cardinality_error = 17.6561; loss_ce_0 = 0.0810; class_error_0 = -0.0000; loss_bbox_0 = 0.0069; loss_giou_0 = 0.4099; cardinality_error_0 = 17.6561; loss_ce_1 = 0.0732; class_error_1 = -0.0000; loss_bbox_1 = 0.0043; loss_giou_1 = 0.2528; cardinality_error_1 = 17.6561; loss_ce_2 = 0.0527; class_error_2 = -0.0000; loss_bbox_2 = 0.0037; loss_giou_2 = 0.2318; cardinality_error_2 = 17.6561; loss_ce_3 = 0.0309; class_error_3 = -0.0000; loss_bbox_3 = 0.0037; loss_giou_3 = 0.2313; cardinality_error_3 = 17.6561; loss_ce_4 = 0.0266; class_error_4 = -0.0000; loss_bbox_4 = 0.0037; loss_giou_4 = 0.2322; cardinality_error_4 = 17.6561; detr_grad_norm = 56.5873; other_grad_norm = 2.5150; lr = 0.0001; max_cuda_mem(MB) = 12368.1777; 
+seq_007: Found 927 image files.
+seq_008: Found 929 image files.
+seq_014: Found 929 image files.
+[1;36m[INFO][0m Submitting sequence seq_007 with 927 frames.
+[1;32m[SUCCESS][0m Submit sequence seq_007 done, FPS: 8.54. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_3/tracker/seq_007.txt.
+[1;36m[INFO][0m Submitting sequence seq_008 with 929 frames.
+[1;32m[SUCCESS][0m Submit sequence seq_008 done, FPS: 8.39. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_3/tracker/seq_008.txt.
+[1;36m[INFO][0m Submitting sequence seq_014 with 929 frames.
+
+Eval Config:
+USE_PARALLEL         : True                          
+NUM_PARALLEL_CORES   : 8                             
+BREAK_ON_ERROR       : True                          
+RETURN_ON_ERROR      : False                         
+LOG_ON_ERROR         : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/TrackEval/error_log.txt
+PRINT_RESULTS        : True                          
+PRINT_ONLY_COMBINED  : False                         
+PRINT_CONFIG         : True                          
+TIME_PROGRESS        : True                          
+DISPLAY_LESS_PROGRESS : False                         
+OUTPUT_SUMMARY       : True                          
+OUTPUT_EMPTY_CLASSES : True                          
+OUTPUT_DETAILED      : True                          
+PLOT_CURVES          : False                         
+
+MotChallenge2DBox Config:
+PRINT_CONFIG         : True                          
+GT_FOLDER            : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data/Bosch_1/val
+TRACKERS_FOLDER      : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_3/tracker
+OUTPUT_FOLDER        : None                          
+TRACKERS_TO_EVAL     : ['']                          
+CLASSES_TO_EVAL      : ['pedestrian']                
+BENCHMARK            : MOT17                         
+SPLIT_TO_EVAL        : val                           
+INPUT_AS_ZIP         : False                         
+DO_PREPROC           : False                         
+TRACKER_SUB_FOLDER   :                               
+OUTPUT_SUB_FOLDER    :                               
+TRACKER_DISPLAY_NAMES : None                          
+SEQMAP_FOLDER        : None                          
+SEQMAP_FILE          : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data/Bosch_1/val_seqmap.txt
+SEQ_INFO             : None                          
+GT_LOC_FORMAT        : {gt_folder}/{seq}/gt/gt.txt   
+SKIP_SPLIT_FOL       : True                          
+
+CLEAR Config:
+METRICS              : ['HOTA', 'CLEAR', 'Identity'] 
+THRESHOLD            : 0.5                           
+PRINT_CONFIG         : True                          
+
+Identity Config:
+METRICS              : ['HOTA', 'CLEAR', 'Identity'] 
+THRESHOLD            : 0.5                           
+PRINT_CONFIG         : True                          
+
+Evaluating 1 tracker(s) on 2 sequence(s) for 1 class(es) on MotChallenge2DBox dataset using the following metrics: HOTA, CLEAR, Identity, Count
+
+
+Evaluating 
+
+
+All sequences for  finished in 0.42 seconds
+
+HOTA: -pedestrian                  HOTA      DetA      AssA      DetRe     DetPr     AssRe     AssPr     LocA      RHOTA     HOTA(0)   LocA(0)   HOTALocA(0)
+seq_007                            6.6384    37.879    1.3038    46.954    57.826    1.3038    100       79.5      7.4572    8.2519    74.974    6.1868    
+seq_008                            5.3878    21.166    1.5169    30.802    37.507    1.5169    100       79.859    6.5362    6.5688    73.933    4.8565    
+COMBINED                           5.8603    27.002    1.4168    37.06     45.324    1.4168    100       79.67     6.9131    7.2013    74.44     5.3606    
+
+CLEAR: -pedestrian                 MOTA      MOTP      MODA      CLR_Re    CLR_Pr    MTR       PTR       MLR       sMOTA     CLR_TP    CLR_FN    CLR_FP    IDSW      MT        PT        ML        Frag      
+seq_007                            -20.4     76.113    37.733    59.467    73.235    30        50        20        -34.605   446       304       163       436       3         5         2         19        
+seq_008                            -44.013   77.35     -8.769    36.678    44.661    0         66.667    33.333    -52.321   435       751       539       418       0         12        6         44        
+COMBINED                           -34.866   76.724    9.2459    45.506    55.654    10.714    60.714    28.571    -45.458   881       1055      702       854       3         17        8         63        
+
+Identity: -pedestrian              IDF1      IDR       IDP       IDTP      IDFN      IDFP      
+seq_007                            1.4717    1.3333    1.642     10        740       599       
+seq_008                            1.5741    1.4334    1.7454    17        1169      957       
+COMBINED                           1.5345    1.3946    1.7056    27        1909      1556      
+
+Count: -pedestrian                 Dets      GT_Dets   IDs       GT_IDs    
+seq_007                            609       750       609       10        
+seq_008                            974       1186      974       18        
+COMBINED                           1583      1936      1583      28        
+[1;32m[SUCCESS][0m Submit sequence seq_014 done, FPS: 8.46. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_3/tracker/seq_014.txt.
+[1;36m[INFO][0m Start evaluation...
+[1;32m[SUCCESS][0m Evaluation script is done.
+[1;32m[SUCCESS][0m Get evaluation metrics from /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_3/tracker/pedestrian_summary.txt.
+[1;36m[Metrics][0m [Eval epoch: 3] HOTA = 5.8603; DetA = 27.0020; AssA = 1.4168; DetPr = 45.3240; DetRe = 37.0600; AssPr = 100.0000; AssRe = 1.4168; MOTA = -34.8660; IDF1 = 1.5345; 
+[1;32m[SUCCESS][0m Finish training epoch 3.
+[1;36m[INFO][0m Start training epoch 4.
+/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/conv.py:456: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at /opt/conda/conda-bld/pytorch_1712608935911/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return F.conv2d(input, weight, bias, self.stride,
+/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/autograd/graph.py:744: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at /opt/conda/conda-bld/pytorch_1712608935911/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[1;36m[Metrics][0m [Epoch: 4] [0/48] [tps: 8.01s] [eta: 0:6:24] loss = 10.8053 (10.8053); detr_loss = 6.8256 (6.8256); id_loss = 3.9797 (3.9797); loss_ce = 0.1003 (0.1003); class_error = -0.0000 (-0.0000); loss_bbox = 0.0039 (0.0039); loss_giou = 0.3770 (0.3770); cardinality_error = 25.5000 (25.5000); loss_ce_0 = 0.0718 (0.0718); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0087 (0.0087); loss_giou_0 = 0.6534 (0.6534); cardinality_error_0 = 25.5000 (25.5000); loss_ce_1 = 0.1232 (0.1232); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0057 (0.0057); loss_giou_1 = 0.5121 (0.5121); cardinality_error_1 = 25.5000 (25.5000); loss_ce_2 = 0.1715 (0.1715); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0039 (0.0039); loss_giou_2 = 0.3613 (0.3613); cardinality_error_2 = 25.5000 (25.5000); loss_ce_3 = 0.1206 (0.1206); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0038 (0.0038); loss_giou_3 = 0.3677 (0.3677); cardinality_error_3 = 25.5000 (25.5000); loss_ce_4 = 0.1018 (0.1018); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0039 (0.0039); loss_giou_4 = 0.3775 (0.3775); cardinality_error_4 = 25.5000 (25.5000); detr_grad_norm = 24.5832 (24.5832); other_grad_norm = 1.4773 (1.4773); lr = 0.0001 (0.0001); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Epoch: 4] [20/48] [tps: 2.59s] [eta: 0:1:12] loss = 8.3239 (8.3239); detr_loss = 4.4027 (4.4027); id_loss = 3.9211 (3.9211); loss_ce = 0.0343 (0.0343); class_error = -0.0000 (-0.0000); loss_bbox = 0.0036 (0.0036); loss_giou = 0.2677 (0.2677); cardinality_error = 15.8000 (15.8000); loss_ce_0 = 0.0733 (0.0733); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0064 (0.0064); loss_giou_0 = 0.4574 (0.4574); cardinality_error_0 = 15.8000 (15.8000); loss_ce_1 = 0.0715 (0.0715); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0040 (0.0040); loss_giou_1 = 0.2967 (0.2967); cardinality_error_1 = 15.8000 (15.8000); loss_ce_2 = 0.0586 (0.0586); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0037 (0.0037); loss_giou_2 = 0.2697 (0.2697); cardinality_error_2 = 15.8000 (15.8000); loss_ce_3 = 0.0397 (0.0397); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0036 (0.0036); loss_giou_3 = 0.2679 (0.2679); cardinality_error_3 = 15.8000 (15.8000); loss_ce_4 = 0.0352 (0.0352); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0036 (0.0036); loss_giou_4 = 0.2668 (0.2668); cardinality_error_4 = 15.8000 (15.8000); detr_grad_norm = 57.9333 (57.9333); other_grad_norm = 2.4644 (2.4644); lr = 0.0001 (0.0001); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Epoch: 4] [40/48] [tps: 2.48s] [eta: 0:0:19] loss = 7.8183 (7.8183); detr_loss = 3.8961 (3.8961); id_loss = 3.9222 (3.9222); loss_ce = 0.0297 (0.0297); class_error = -0.0000 (-0.0000); loss_bbox = 0.0032 (0.0032); loss_giou = 0.2363 (0.2363); cardinality_error = 14.4000 (14.4000); loss_ce_0 = 0.0721 (0.0721); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0059 (0.0059); loss_giou_0 = 0.4089 (0.4089); cardinality_error_0 = 14.4000 (14.4000); loss_ce_1 = 0.0644 (0.0644); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0036 (0.0036); loss_giou_1 = 0.2622 (0.2622); cardinality_error_1 = 14.4000 (14.4000); loss_ce_2 = 0.0487 (0.0487); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0033 (0.0033); loss_giou_2 = 0.2362 (0.2362); cardinality_error_2 = 14.4000 (14.4000); loss_ce_3 = 0.0340 (0.0340); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0032 (0.0032); loss_giou_3 = 0.2348 (0.2348); cardinality_error_3 = 14.4000 (14.4000); loss_ce_4 = 0.0300 (0.0300); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0032 (0.0032); loss_giou_4 = 0.2348 (0.2348); cardinality_error_4 = 14.4000 (14.4000); detr_grad_norm = 53.7280 (53.7280); other_grad_norm = 2.4396 (2.4396); lr = 0.0001 (0.0001); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Finish epoch: 4] [Time: 0:1:57] loss = 7.8183; detr_loss = 3.8961; id_loss = 3.9222; loss_ce = 0.0297; class_error = -0.0000; loss_bbox = 0.0032; loss_giou = 0.2363; cardinality_error = 14.4000; loss_ce_0 = 0.0721; class_error_0 = -0.0000; loss_bbox_0 = 0.0059; loss_giou_0 = 0.4089; cardinality_error_0 = 14.4000; loss_ce_1 = 0.0644; class_error_1 = -0.0000; loss_bbox_1 = 0.0036; loss_giou_1 = 0.2622; cardinality_error_1 = 14.4000; loss_ce_2 = 0.0487; class_error_2 = -0.0000; loss_bbox_2 = 0.0033; loss_giou_2 = 0.2362; cardinality_error_2 = 14.4000; loss_ce_3 = 0.0340; class_error_3 = -0.0000; loss_bbox_3 = 0.0032; loss_giou_3 = 0.2348; cardinality_error_3 = 14.4000; loss_ce_4 = 0.0300; class_error_4 = -0.0000; loss_bbox_4 = 0.0032; loss_giou_4 = 0.2348; cardinality_error_4 = 14.4000; detr_grad_norm = 53.7280; other_grad_norm = 2.4396; lr = 0.0001; max_cuda_mem(MB) = 12368.1777; 
+seq_007: Found 927 image files.
+seq_008: Found 929 image files.
+seq_014: Found 929 image files.
+[1;36m[INFO][0m Submitting sequence seq_007 with 927 frames.
+[1;32m[SUCCESS][0m Submit sequence seq_007 done, FPS: 8.51. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_4/tracker/seq_007.txt.
+[1;36m[INFO][0m Submitting sequence seq_008 with 929 frames.
+[1;32m[SUCCESS][0m Submit sequence seq_008 done, FPS: 8.43. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_4/tracker/seq_008.txt.
+[1;36m[INFO][0m Submitting sequence seq_014 with 929 frames.
+
+Eval Config:
+USE_PARALLEL         : True                          
+NUM_PARALLEL_CORES   : 8                             
+BREAK_ON_ERROR       : True                          
+RETURN_ON_ERROR      : False                         
+LOG_ON_ERROR         : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/TrackEval/error_log.txt
+PRINT_RESULTS        : True                          
+PRINT_ONLY_COMBINED  : False                         
+PRINT_CONFIG         : True                          
+TIME_PROGRESS        : True                          
+DISPLAY_LESS_PROGRESS : False                         
+OUTPUT_SUMMARY       : True                          
+OUTPUT_EMPTY_CLASSES : True                          
+OUTPUT_DETAILED      : True                          
+PLOT_CURVES          : False                         
+
+MotChallenge2DBox Config:
+PRINT_CONFIG         : True                          
+GT_FOLDER            : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data/Bosch_1/val
+TRACKERS_FOLDER      : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_4/tracker
+OUTPUT_FOLDER        : None                          
+TRACKERS_TO_EVAL     : ['']                          
+CLASSES_TO_EVAL      : ['pedestrian']                
+BENCHMARK            : MOT17                         
+SPLIT_TO_EVAL        : val                           
+INPUT_AS_ZIP         : False                         
+DO_PREPROC           : False                         
+TRACKER_SUB_FOLDER   :                               
+OUTPUT_SUB_FOLDER    :                               
+TRACKER_DISPLAY_NAMES : None                          
+SEQMAP_FOLDER        : None                          
+SEQMAP_FILE          : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data/Bosch_1/val_seqmap.txt
+SEQ_INFO             : None                          
+GT_LOC_FORMAT        : {gt_folder}/{seq}/gt/gt.txt   
+SKIP_SPLIT_FOL       : True                          
+
+CLEAR Config:
+METRICS              : ['HOTA', 'CLEAR', 'Identity'] 
+THRESHOLD            : 0.5                           
+PRINT_CONFIG         : True                          
+
+Identity Config:
+METRICS              : ['HOTA', 'CLEAR', 'Identity'] 
+THRESHOLD            : 0.5                           
+PRINT_CONFIG         : True                          
+
+Evaluating 1 tracker(s) on 2 sequence(s) for 1 class(es) on MotChallenge2DBox dataset using the following metrics: HOTA, CLEAR, Identity, Count
+
+
+Evaluating 
+
+
+All sequences for  finished in 0.47 seconds
+
+HOTA: -pedestrian                  HOTA      DetA      AssA      DetRe     DetPr     AssRe     AssPr     LocA      RHOTA     HOTA(0)   LocA(0)   HOTALocA(0)
+seq_007                            6.8307    37.159    1.3345    45.144    62.7      1.3345    100       84.689    7.5713    7.8324    81.867    6.4122    
+seq_008                            5.4448    21.515    1.5231    30.43     39.399    1.5231    100       80.722    6.507     6.5801    75.65     4.9779    
+COMBINED                           5.9759    27.001    1.423     36.13     48.041    1.423     100       82.607    6.9479    7.0457    78.531    5.533     
+
+CLEAR: -pedestrian                 MOTA      MOTP      MODA      CLR_Re    CLR_Pr    MTR       PTR       MLR       sMOTA     CLR_TP    CLR_FN    CLR_FP    IDSW      MT        PT        ML        Frag      
+seq_007                            -17.333   82.358    34.667    53.333    74.074    10        80        10        -26.743   400       350       140       390       1         8         1         30        
+seq_008                            -39.039   78.168    -3.7099   36.762    47.598    0         72.222    27.778    -47.065   436       750       480       419       0         13        5         35        
+COMBINED                           -30.63    80.173    11.157    43.182    57.418    3.5714    75        21.429    -39.192   836       1100      620       809       1         21        6         65        
+
+Identity: -pedestrian              IDF1      IDR       IDP       IDTP      IDFN      IDFP      
+seq_007                            1.5504    1.3333    1.8519    10        740       530       
+seq_008                            1.6175    1.4334    1.8559    17        1169      899       
+COMBINED                           1.592     1.3946    1.8544    27        1909      1429      
+
+Count: -pedestrian                 Dets      GT_Dets   IDs       GT_IDs    
+seq_007                            540       750       540       10        
+seq_008                            916       1186      916       18        
+COMBINED                           1456      1936      1456      28        
+[1;32m[SUCCESS][0m Submit sequence seq_014 done, FPS: 8.05. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_4/tracker/seq_014.txt.
+[1;36m[INFO][0m Start evaluation...
+[1;32m[SUCCESS][0m Evaluation script is done.
+[1;32m[SUCCESS][0m Get evaluation metrics from /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_4/tracker/pedestrian_summary.txt.
+[1;36m[Metrics][0m [Eval epoch: 4] HOTA = 5.9759; DetA = 27.0010; AssA = 1.4230; DetPr = 48.0410; DetRe = 36.1300; AssPr = 100.0000; AssRe = 1.4230; MOTA = -30.6300; IDF1 = 1.5920; 
+[1;32m[SUCCESS][0m Finish training epoch 4.
+[1;36m[INFO][0m Start training epoch 5.
+/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/conv.py:456: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at /opt/conda/conda-bld/pytorch_1712608935911/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return F.conv2d(input, weight, bias, self.stride,
+/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/autograd/graph.py:744: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at /opt/conda/conda-bld/pytorch_1712608935911/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[1;36m[Metrics][0m [Epoch: 5] [0/58] [tps: 8.97s] [eta: 0:8:40] loss = 8.0061 (8.0061); detr_loss = 4.0796 (4.0796); id_loss = 3.9265 (3.9265); loss_ce = 0.0277 (0.0277); class_error = 0.0000 (0.0000); loss_bbox = 0.0049 (0.0049); loss_giou = 0.2516 (0.2516); cardinality_error = 5.1000 (5.1000); loss_ce_0 = 0.0924 (0.0924); class_error_0 = 0.0000 (0.0000); loss_bbox_0 = 0.0081 (0.0081); loss_giou_0 = 0.3887 (0.3887); cardinality_error_0 = 5.1000 (5.1000); loss_ce_1 = 0.0510 (0.0510); class_error_1 = 0.0000 (0.0000); loss_bbox_1 = 0.0055 (0.0055); loss_giou_1 = 0.2812 (0.2812); cardinality_error_1 = 5.1000 (5.1000); loss_ce_2 = 0.0393 (0.0393); class_error_2 = 0.0000 (0.0000); loss_bbox_2 = 0.0050 (0.0050); loss_giou_2 = 0.2666 (0.2666); cardinality_error_2 = 5.1000 (5.1000); loss_ce_3 = 0.0268 (0.0268); class_error_3 = 0.0000 (0.0000); loss_bbox_3 = 0.0049 (0.0049); loss_giou_3 = 0.2519 (0.2519); cardinality_error_3 = 5.1000 (5.1000); loss_ce_4 = 0.0307 (0.0307); class_error_4 = 0.0000 (0.0000); loss_bbox_4 = 0.0049 (0.0049); loss_giou_4 = 0.2486 (0.2486); cardinality_error_4 = 5.1000 (5.1000); detr_grad_norm = 29.1335 (29.1335); other_grad_norm = 2.7036 (2.7036); lr = 0.0001 (0.0001); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Epoch: 5] [20/58] [tps: 2.76s] [eta: 0:1:45] loss = 8.2047 (8.2047); detr_loss = 4.2719 (4.2719); id_loss = 3.9328 (3.9328); loss_ce = 0.0330 (0.0330); class_error = -0.0000 (-0.0000); loss_bbox = 0.0031 (0.0031); loss_giou = 0.2471 (0.2471); cardinality_error = 16.0095 (16.0095); loss_ce_0 = 0.0767 (0.0767); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0066 (0.0066); loss_giou_0 = 0.4925 (0.4925); cardinality_error_0 = 16.0095 (16.0095); loss_ce_1 = 0.0700 (0.0700); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0035 (0.0035); loss_giou_1 = 0.2862 (0.2862); cardinality_error_1 = 16.0095 (16.0095); loss_ce_2 = 0.0518 (0.0518); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0032 (0.0032); loss_giou_2 = 0.2528 (0.2528); cardinality_error_2 = 16.0095 (16.0095); loss_ce_3 = 0.0373 (0.0373); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0031 (0.0031); loss_giou_3 = 0.2511 (0.2511); cardinality_error_3 = 16.0095 (16.0095); loss_ce_4 = 0.0340 (0.0340); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0031 (0.0031); loss_giou_4 = 0.2467 (0.2467); cardinality_error_4 = 16.0095 (16.0095); detr_grad_norm = 60.5824 (60.5824); other_grad_norm = 2.1386 (2.1386); lr = 0.0001 (0.0001); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Epoch: 5] [40/58] [tps: 2.71s] [eta: 0:0:48] loss = 7.9363 (7.9363); detr_loss = 4.0210 (4.0210); id_loss = 3.9153 (3.9153); loss_ce = 0.0248 (0.0248); class_error = -0.0000 (-0.0000); loss_bbox = 0.0034 (0.0034); loss_giou = 0.2494 (0.2494); cardinality_error = 14.4878 (14.4878); loss_ce_0 = 0.0744 (0.0744); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0064 (0.0064); loss_giou_0 = 0.4420 (0.4420); cardinality_error_0 = 14.4878 (14.4878); loss_ce_1 = 0.0583 (0.0583); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0036 (0.0036); loss_giou_1 = 0.2651 (0.2651); cardinality_error_1 = 14.4878 (14.4878); loss_ce_2 = 0.0416 (0.0416); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0034 (0.0034); loss_giou_2 = 0.2483 (0.2483); cardinality_error_2 = 14.4878 (14.4878); loss_ce_3 = 0.0284 (0.0284); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0034 (0.0034); loss_giou_3 = 0.2462 (0.2462); cardinality_error_3 = 14.4878 (14.4878); loss_ce_4 = 0.0255 (0.0255); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0034 (0.0034); loss_giou_4 = 0.2470 (0.2470); cardinality_error_4 = 14.4878 (14.4878); detr_grad_norm = 54.1845 (54.1845); other_grad_norm = 2.3571 (2.3571); lr = 0.0001 (0.0001); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Finish epoch: 5] [Time: 0:2:29] loss = 7.9363; detr_loss = 4.0210; id_loss = 3.9153; loss_ce = 0.0248; class_error = -0.0000; loss_bbox = 0.0034; loss_giou = 0.2494; cardinality_error = 14.4878; loss_ce_0 = 0.0744; class_error_0 = -0.0000; loss_bbox_0 = 0.0064; loss_giou_0 = 0.4420; cardinality_error_0 = 14.4878; loss_ce_1 = 0.0583; class_error_1 = -0.0000; loss_bbox_1 = 0.0036; loss_giou_1 = 0.2651; cardinality_error_1 = 14.4878; loss_ce_2 = 0.0416; class_error_2 = -0.0000; loss_bbox_2 = 0.0034; loss_giou_2 = 0.2483; cardinality_error_2 = 14.4878; loss_ce_3 = 0.0284; class_error_3 = -0.0000; loss_bbox_3 = 0.0034; loss_giou_3 = 0.2462; cardinality_error_3 = 14.4878; loss_ce_4 = 0.0255; class_error_4 = -0.0000; loss_bbox_4 = 0.0034; loss_giou_4 = 0.2470; cardinality_error_4 = 14.4878; detr_grad_norm = 54.1845; other_grad_norm = 2.3571; lr = 0.0001; max_cuda_mem(MB) = 12368.1777; 
+seq_007: Found 927 image files.
+seq_008: Found 929 image files.
+seq_014: Found 929 image files.
+[1;36m[INFO][0m Submitting sequence seq_007 with 927 frames.
+[1;32m[SUCCESS][0m Submit sequence seq_007 done, FPS: 8.52. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_5/tracker/seq_007.txt.
+[1;36m[INFO][0m Submitting sequence seq_008 with 929 frames.
+[1;32m[SUCCESS][0m Submit sequence seq_008 done, FPS: 8.40. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_5/tracker/seq_008.txt.
+[1;36m[INFO][0m Submitting sequence seq_014 with 929 frames.
+
+Eval Config:
+USE_PARALLEL         : True                          
+NUM_PARALLEL_CORES   : 8                             
+BREAK_ON_ERROR       : True                          
+RETURN_ON_ERROR      : False                         
+LOG_ON_ERROR         : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/TrackEval/error_log.txt
+PRINT_RESULTS        : True                          
+PRINT_ONLY_COMBINED  : False                         
+PRINT_CONFIG         : True                          
+TIME_PROGRESS        : True                          
+DISPLAY_LESS_PROGRESS : False                         
+OUTPUT_SUMMARY       : True                          
+OUTPUT_EMPTY_CLASSES : True                          
+OUTPUT_DETAILED      : True                          
+PLOT_CURVES          : False                         
+
+MotChallenge2DBox Config:
+PRINT_CONFIG         : True                          
+GT_FOLDER            : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data/Bosch_1/val
+TRACKERS_FOLDER      : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_5/tracker
+OUTPUT_FOLDER        : None                          
+TRACKERS_TO_EVAL     : ['']                          
+CLASSES_TO_EVAL      : ['pedestrian']                
+BENCHMARK            : MOT17                         
+SPLIT_TO_EVAL        : val                           
+INPUT_AS_ZIP         : False                         
+DO_PREPROC           : False                         
+TRACKER_SUB_FOLDER   :                               
+OUTPUT_SUB_FOLDER    :                               
+TRACKER_DISPLAY_NAMES : None                          
+SEQMAP_FOLDER        : None                          
+SEQMAP_FILE          : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data/Bosch_1/val_seqmap.txt
+SEQ_INFO             : None                          
+GT_LOC_FORMAT        : {gt_folder}/{seq}/gt/gt.txt   
+SKIP_SPLIT_FOL       : True                          
+
+CLEAR Config:
+METRICS              : ['HOTA', 'CLEAR', 'Identity'] 
+THRESHOLD            : 0.5                           
+PRINT_CONFIG         : True                          
+
+Identity Config:
+METRICS              : ['HOTA', 'CLEAR', 'Identity'] 
+THRESHOLD            : 0.5                           
+PRINT_CONFIG         : True                          
+
+Evaluating 1 tracker(s) on 2 sequence(s) for 1 class(es) on MotChallenge2DBox dataset using the following metrics: HOTA, CLEAR, Identity, Count
+
+
+Evaluating 
+
+
+All sequences for  finished in 0.39 seconds
+
+HOTA: -pedestrian                  HOTA      DetA      AssA      DetRe     DetPr     AssRe     AssPr     LocA      RHOTA     HOTA(0)   LocA(0)   HOTALocA(0)
+seq_007                            6.6563    38.151    1.2535    45.902    60.932    1.2535    94.737    80.64     7.3504    8.1736    76.523    6.2547    
+seq_008                            5.3162    20.816    1.5081    29.391    38.263    1.5081    100       78.694    6.3539    6.6666    71.723    4.7815    
+COMBINED                           5.8258    26.867    1.414     35.787    46.941    1.414     100       79.535    6.7652    7.2306    74.027    5.3526    
+
+CLEAR: -pedestrian                 MOTA      MOTP      MODA      CLR_Re    CLR_Pr    MTR       PTR       MLR       sMOTA     CLR_TP    CLR_FN    CLR_FP    IDSW      MT        PT        ML        Frag      
+seq_007                            -16.933   77.668    38.8      57.067    75.752    30        50        20        -29.677   428       322       137       418       3         5         2         19        
+seq_008                            -40.304   76.159    -6.4924   35.16     45.774    0         61.111    38.889    -48.686   417       769       494       401       0         11        7         38        
+COMBINED                           -31.25    76.923    11.054    43.647    57.249    10.714    57.143    32.143    -41.322   845       1091      631       819       3         16        9         57        
+
+Identity: -pedestrian              IDF1      IDR       IDP       IDTP      IDFN      IDFP      
+seq_007                            1.5209    1.3333    1.7699    10        740       555       
+seq_008                            1.526     1.3491    1.7563    16        1170      895       
+COMBINED                           1.524     1.343     1.7615    26        1910      1450      
+
+Count: -pedestrian                 Dets      GT_Dets   IDs       GT_IDs    
+seq_007                            565       750       565       10        
+seq_008                            911       1186      911       18        
+COMBINED                           1476      1936      1476      28        
+[1;32m[SUCCESS][0m Submit sequence seq_014 done, FPS: 8.46. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_5/tracker/seq_014.txt.
+[1;36m[INFO][0m Start evaluation...
+[1;32m[SUCCESS][0m Evaluation script is done.
+[1;32m[SUCCESS][0m Get evaluation metrics from /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_5/tracker/pedestrian_summary.txt.
+[1;36m[Metrics][0m [Eval epoch: 5] HOTA = 5.8258; DetA = 26.8670; AssA = 1.4140; DetPr = 46.9410; DetRe = 35.7870; AssPr = 100.0000; AssRe = 1.4140; MOTA = -31.2500; IDF1 = 1.5240; 
+[1;32m[SUCCESS][0m Finish training epoch 5.
+[1;36m[INFO][0m Start training epoch 6.
+/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/conv.py:456: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at /opt/conda/conda-bld/pytorch_1712608935911/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return F.conv2d(input, weight, bias, self.stride,
+/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/autograd/graph.py:744: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at /opt/conda/conda-bld/pytorch_1712608935911/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[1;36m[Metrics][0m [Epoch: 6] [0/53] [tps: 8.04s] [eta: 0:7:5] loss = 8.3229 (8.3229); detr_loss = 4.3712 (4.3712); id_loss = 3.9517 (3.9517); loss_ce = 0.0246 (0.0246); class_error = -0.0000 (-0.0000); loss_bbox = 0.0054 (0.0054); loss_giou = 0.2957 (0.2957); cardinality_error = 28.0000 (28.0000); loss_ce_0 = 0.0938 (0.0938); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0065 (0.0065); loss_giou_0 = 0.3462 (0.3462); cardinality_error_0 = 28.0000 (28.0000); loss_ce_1 = 0.1034 (0.1034); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0051 (0.0051); loss_giou_1 = 0.2747 (0.2747); cardinality_error_1 = 28.0000 (28.0000); loss_ce_2 = 0.0743 (0.0743); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0052 (0.0052); loss_giou_2 = 0.2713 (0.2713); cardinality_error_2 = 28.0000 (28.0000); loss_ce_3 = 0.0296 (0.0296); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0052 (0.0052); loss_giou_3 = 0.2764 (0.2764); cardinality_error_3 = 28.0000 (28.0000); loss_ce_4 = 0.0258 (0.0258); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0053 (0.0053); loss_giou_4 = 0.2879 (0.2879); cardinality_error_4 = 28.0000 (28.0000); detr_grad_norm = 27.4139 (27.4139); other_grad_norm = 1.1704 (1.1704); lr = 0.0000 (0.0000); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Epoch: 6] [20/53] [tps: 2.58s] [eta: 0:1:25] loss = 7.9517 (7.9517); detr_loss = 4.0393 (4.0393); id_loss = 3.9124 (3.9124); loss_ce = 0.0293 (0.0293); class_error = -0.0000 (-0.0000); loss_bbox = 0.0035 (0.0035); loss_giou = 0.2458 (0.2458); cardinality_error = 17.5286 (17.5286); loss_ce_0 = 0.0879 (0.0879); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0060 (0.0060); loss_giou_0 = 0.4012 (0.4012); cardinality_error_0 = 17.5286 (17.5286); loss_ce_1 = 0.0781 (0.0781); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0040 (0.0040); loss_giou_1 = 0.2782 (0.2782); cardinality_error_1 = 17.5286 (17.5286); loss_ce_2 = 0.0554 (0.0554); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0035 (0.0035); loss_giou_2 = 0.2417 (0.2417); cardinality_error_2 = 17.5286 (17.5286); loss_ce_3 = 0.0348 (0.0348); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0034 (0.0034); loss_giou_3 = 0.2373 (0.2373); cardinality_error_3 = 17.5286 (17.5286); loss_ce_4 = 0.0296 (0.0296); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0034 (0.0034); loss_giou_4 = 0.2409 (0.2409); cardinality_error_4 = 17.5286 (17.5286); detr_grad_norm = 44.8635 (44.8635); other_grad_norm = 2.0040 (2.0040); lr = 0.0000 (0.0000); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Epoch: 6] [40/53] [tps: 2.54s] [eta: 0:0:33] loss = 7.7454 (7.7454); detr_loss = 3.8460 (3.8460); id_loss = 3.8994 (3.8994); loss_ce = 0.0271 (0.0271); class_error = -0.0000 (-0.0000); loss_bbox = 0.0032 (0.0032); loss_giou = 0.2334 (0.2334); cardinality_error = 15.9244 (15.9244); loss_ce_0 = 0.0824 (0.0824); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0056 (0.0056); loss_giou_0 = 0.3886 (0.3886); cardinality_error_0 = 15.9244 (15.9244); loss_ce_1 = 0.0695 (0.0695); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0037 (0.0037); loss_giou_1 = 0.2663 (0.2663); cardinality_error_1 = 15.9244 (15.9244); loss_ce_2 = 0.0497 (0.0497); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0032 (0.0032); loss_giou_2 = 0.2331 (0.2331); cardinality_error_2 = 15.9244 (15.9244); loss_ce_3 = 0.0318 (0.0318); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0031 (0.0031); loss_giou_3 = 0.2286 (0.2286); cardinality_error_3 = 15.9244 (15.9244); loss_ce_4 = 0.0274 (0.0274); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0031 (0.0031); loss_giou_4 = 0.2302 (0.2302); cardinality_error_4 = 15.9244 (15.9244); detr_grad_norm = 45.3372 (45.3372); other_grad_norm = 2.1297 (2.1297); lr = 0.0000 (0.0000); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Finish epoch: 6] [Time: 0:2:13] loss = 7.7454; detr_loss = 3.8460; id_loss = 3.8994; loss_ce = 0.0271; class_error = -0.0000; loss_bbox = 0.0032; loss_giou = 0.2334; cardinality_error = 15.9244; loss_ce_0 = 0.0824; class_error_0 = -0.0000; loss_bbox_0 = 0.0056; loss_giou_0 = 0.3886; cardinality_error_0 = 15.9244; loss_ce_1 = 0.0695; class_error_1 = -0.0000; loss_bbox_1 = 0.0037; loss_giou_1 = 0.2663; cardinality_error_1 = 15.9244; loss_ce_2 = 0.0497; class_error_2 = -0.0000; loss_bbox_2 = 0.0032; loss_giou_2 = 0.2331; cardinality_error_2 = 15.9244; loss_ce_3 = 0.0318; class_error_3 = -0.0000; loss_bbox_3 = 0.0031; loss_giou_3 = 0.2286; cardinality_error_3 = 15.9244; loss_ce_4 = 0.0274; class_error_4 = -0.0000; loss_bbox_4 = 0.0031; loss_giou_4 = 0.2302; cardinality_error_4 = 15.9244; detr_grad_norm = 45.3372; other_grad_norm = 2.1297; lr = 0.0000; max_cuda_mem(MB) = 12368.1777; 
+seq_007: Found 927 image files.
+seq_008: Found 929 image files.
+seq_014: Found 929 image files.
+[1;36m[INFO][0m Submitting sequence seq_007 with 927 frames.
+[1;32m[SUCCESS][0m Submit sequence seq_007 done, FPS: 8.58. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_6/tracker/seq_007.txt.
+[1;36m[INFO][0m Submitting sequence seq_008 with 929 frames.
+[1;32m[SUCCESS][0m Submit sequence seq_008 done, FPS: 8.45. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_6/tracker/seq_008.txt.
+[1;36m[INFO][0m Submitting sequence seq_014 with 929 frames.
+
+Eval Config:
+USE_PARALLEL         : True                          
+NUM_PARALLEL_CORES   : 8                             
+BREAK_ON_ERROR       : True                          
+RETURN_ON_ERROR      : False                         
+LOG_ON_ERROR         : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/TrackEval/error_log.txt
+PRINT_RESULTS        : True                          
+PRINT_ONLY_COMBINED  : False                         
+PRINT_CONFIG         : True                          
+TIME_PROGRESS        : True                          
+DISPLAY_LESS_PROGRESS : False                         
+OUTPUT_SUMMARY       : True                          
+OUTPUT_EMPTY_CLASSES : True                          
+OUTPUT_DETAILED      : True                          
+PLOT_CURVES          : False                         
+
+MotChallenge2DBox Config:
+PRINT_CONFIG         : True                          
+GT_FOLDER            : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data/Bosch_1/val
+TRACKERS_FOLDER      : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_6/tracker
+OUTPUT_FOLDER        : None                          
+TRACKERS_TO_EVAL     : ['']                          
+CLASSES_TO_EVAL      : ['pedestrian']                
+BENCHMARK            : MOT17                         
+SPLIT_TO_EVAL        : val                           
+INPUT_AS_ZIP         : False                         
+DO_PREPROC           : False                         
+TRACKER_SUB_FOLDER   :                               
+OUTPUT_SUB_FOLDER    :                               
+TRACKER_DISPLAY_NAMES : None                          
+SEQMAP_FOLDER        : None                          
+SEQMAP_FILE          : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data/Bosch_1/val_seqmap.txt
+SEQ_INFO             : None                          
+GT_LOC_FORMAT        : {gt_folder}/{seq}/gt/gt.txt   
+SKIP_SPLIT_FOL       : True                          
+
+CLEAR Config:
+METRICS              : ['HOTA', 'CLEAR', 'Identity'] 
+THRESHOLD            : 0.5                           
+PRINT_CONFIG         : True                          
+
+Identity Config:
+METRICS              : ['HOTA', 'CLEAR', 'Identity'] 
+THRESHOLD            : 0.5                           
+PRINT_CONFIG         : True                          
+
+Evaluating 1 tracker(s) on 2 sequence(s) for 1 class(es) on MotChallenge2DBox dataset using the following metrics: HOTA, CLEAR, Identity, Count
+
+
+Evaluating 
+
+
+All sequences for  finished in 0.42 seconds
+
+HOTA: -pedestrian                  HOTA      DetA      AssA      DetRe     DetPr     AssRe     AssPr     LocA      RHOTA     HOTA(0)   LocA(0)   HOTALocA(0)
+seq_007                            7.2214    42.347    1.3214    51.368    65.41     1.3214    100       85.389    7.9953    8.2583    82.754    6.8341    
+seq_008                            5.5845    22.057    1.5459    31.557    39.605    1.5459    100       81.083    6.7148    6.7029    75.13     5.0359    
+COMBINED                           6.2063    29.103    1.4305    39.232    49.513    1.4305    100       83.193    7.2414    7.2847    78.809    5.741     
+
+CLEAR: -pedestrian                 MOTA      MOTP      MODA      CLR_Re    CLR_Pr    MTR       PTR       MLR       sMOTA     CLR_TP    CLR_FN    CLR_FP    IDSW      MT        PT        ML        Frag      
+seq_007                            -18.133   83.966    39.6      59.067    75.212    30        50        20        -27.604   443       307       146       433       3         5         2         22        
+seq_008                            -41.484   79.012    -6.1551   36.762    46.138    0         61.111    38.889    -49.2     436       750       509       419       0         11        7         41        
+COMBINED                           -32.438   81.509    11.57     45.403    57.301    10.714    57.143    32.143    -40.834   879       1057      655       852       3         16        9         63        
+
+Identity: -pedestrian              IDF1      IDR       IDP       IDTP      IDFN      IDFP      
+seq_007                            1.4937    1.3333    1.6978    10        740       579       
+seq_008                            1.5955    1.4334    1.7989    17        1169      928       
+COMBINED                           1.5562    1.3946    1.7601    27        1909      1507      
+
+Count: -pedestrian                 Dets      GT_Dets   IDs       GT_IDs    
+seq_007                            589       750       589       10        
+seq_008                            945       1186      945       18        
+COMBINED                           1534      1936      1534      28        
+[1;32m[SUCCESS][0m Submit sequence seq_014 done, FPS: 8.47. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_6/tracker/seq_014.txt.
+[1;36m[INFO][0m Start evaluation...
+[1;32m[SUCCESS][0m Evaluation script is done.
+[1;32m[SUCCESS][0m Get evaluation metrics from /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_6/tracker/pedestrian_summary.txt.
+[1;36m[Metrics][0m [Eval epoch: 6] HOTA = 6.2063; DetA = 29.1030; AssA = 1.4305; DetPr = 49.5130; DetRe = 39.2320; AssPr = 100.0000; AssRe = 1.4305; MOTA = -32.4380; IDF1 = 1.5562; 
+[1;32m[SUCCESS][0m Finish training epoch 6.
+[1;36m[INFO][0m Start training epoch 7.
+/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/autograd/graph.py:744: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at /opt/conda/conda-bld/pytorch_1712608935911/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/conv.py:456: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at /opt/conda/conda-bld/pytorch_1712608935911/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return F.conv2d(input, weight, bias, self.stride,
+[1;36m[Metrics][0m [Epoch: 7] [0/55] [tps: 8.38s] [eta: 0:7:41] loss = 6.9784 (6.9784); detr_loss = 3.1839 (3.1839); id_loss = 3.7945 (3.7945); loss_ce = 0.0051 (0.0051); class_error = 0.0000 (0.0000); loss_bbox = 0.0037 (0.0037); loss_giou = 0.1899 (0.1899); cardinality_error = 6.0000 (6.0000); loss_ce_0 = 0.1517 (0.1517); class_error_0 = 0.0000 (0.0000); loss_bbox_0 = 0.0060 (0.0060); loss_giou_0 = 0.3081 (0.3081); cardinality_error_0 = 6.0000 (6.0000); loss_ce_1 = 0.0719 (0.0719); class_error_1 = 0.0000 (0.0000); loss_bbox_1 = 0.0041 (0.0041); loss_giou_1 = 0.2043 (0.2043); cardinality_error_1 = 6.0000 (6.0000); loss_ce_2 = 0.0210 (0.0210); class_error_2 = 0.0000 (0.0000); loss_bbox_2 = 0.0037 (0.0037); loss_giou_2 = 0.1891 (0.1891); cardinality_error_2 = 6.0000 (6.0000); loss_ce_3 = 0.0071 (0.0071); class_error_3 = 0.0000 (0.0000); loss_bbox_3 = 0.0036 (0.0036); loss_giou_3 = 0.1858 (0.1858); cardinality_error_3 = 6.0000 (6.0000); loss_ce_4 = 0.0067 (0.0067); class_error_4 = 0.0000 (0.0000); loss_bbox_4 = 0.0037 (0.0037); loss_giou_4 = 0.1894 (0.1894); cardinality_error_4 = 6.0000 (6.0000); detr_grad_norm = 32.5175 (32.5175); other_grad_norm = 2.9285 (2.9285); lr = 0.0000 (0.0000); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Epoch: 7] [20/55] [tps: 2.58s] [eta: 0:1:30] loss = 7.2572 (7.2572); detr_loss = 3.3821 (3.3821); id_loss = 3.8751 (3.8751); loss_ce = 0.0185 (0.0185); class_error = -0.0000 (-0.0000); loss_bbox = 0.0030 (0.0030); loss_giou = 0.2154 (0.2154); cardinality_error = 11.5048 (11.5048); loss_ce_0 = 0.0671 (0.0671); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0046 (0.0046); loss_giou_0 = 0.3181 (0.3181); cardinality_error_0 = 11.5048 (11.5048); loss_ce_1 = 0.0490 (0.0490); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0035 (0.0035); loss_giou_1 = 0.2459 (0.2459); cardinality_error_1 = 11.5048 (11.5048); loss_ce_2 = 0.0314 (0.0314); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0031 (0.0031); loss_giou_2 = 0.2226 (0.2226); cardinality_error_2 = 11.5048 (11.5048); loss_ce_3 = 0.0208 (0.0208); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0030 (0.0030); loss_giou_3 = 0.2164 (0.2164); cardinality_error_3 = 11.5048 (11.5048); loss_ce_4 = 0.0190 (0.0190); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0030 (0.0030); loss_giou_4 = 0.2158 (0.2158); cardinality_error_4 = 11.5048 (11.5048); detr_grad_norm = 67.2542 (67.2542); other_grad_norm = 2.5762 (2.5762); lr = 0.0000 (0.0000); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Epoch: 7] [40/55] [tps: 2.57s] [eta: 0:0:38] loss = 7.0616 (7.0616); detr_loss = 3.1823 (3.1823); id_loss = 3.8793 (3.8793); loss_ce = 0.0186 (0.0186); class_error = -0.0000 (-0.0000); loss_bbox = 0.0029 (0.0029); loss_giou = 0.1955 (0.1955); cardinality_error = 14.4537 (14.4537); loss_ce_0 = 0.0683 (0.0683); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0047 (0.0047); loss_giou_0 = 0.3169 (0.3169); cardinality_error_0 = 14.4537 (14.4537); loss_ce_1 = 0.0556 (0.0556); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0032 (0.0032); loss_giou_1 = 0.2231 (0.2231); cardinality_error_1 = 14.4537 (14.4537); loss_ce_2 = 0.0341 (0.0341); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0029 (0.0029); loss_giou_2 = 0.1998 (0.1998); cardinality_error_2 = 14.4537 (14.4537); loss_ce_3 = 0.0210 (0.0210); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0029 (0.0029); loss_giou_3 = 0.1954 (0.1954); cardinality_error_3 = 14.4537 (14.4537); loss_ce_4 = 0.0191 (0.0191); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0029 (0.0029); loss_giou_4 = 0.1951 (0.1951); cardinality_error_4 = 14.4537 (14.4537); detr_grad_norm = 71.4626 (71.4626); other_grad_norm = 2.2877 (2.2877); lr = 0.0000 (0.0000); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Finish epoch: 7] [Time: 0:2:18] loss = 7.0616; detr_loss = 3.1823; id_loss = 3.8793; loss_ce = 0.0186; class_error = -0.0000; loss_bbox = 0.0029; loss_giou = 0.1955; cardinality_error = 14.4537; loss_ce_0 = 0.0683; class_error_0 = -0.0000; loss_bbox_0 = 0.0047; loss_giou_0 = 0.3169; cardinality_error_0 = 14.4537; loss_ce_1 = 0.0556; class_error_1 = -0.0000; loss_bbox_1 = 0.0032; loss_giou_1 = 0.2231; cardinality_error_1 = 14.4537; loss_ce_2 = 0.0341; class_error_2 = -0.0000; loss_bbox_2 = 0.0029; loss_giou_2 = 0.1998; cardinality_error_2 = 14.4537; loss_ce_3 = 0.0210; class_error_3 = -0.0000; loss_bbox_3 = 0.0029; loss_giou_3 = 0.1954; cardinality_error_3 = 14.4537; loss_ce_4 = 0.0191; class_error_4 = -0.0000; loss_bbox_4 = 0.0029; loss_giou_4 = 0.1951; cardinality_error_4 = 14.4537; detr_grad_norm = 71.4626; other_grad_norm = 2.2877; lr = 0.0000; max_cuda_mem(MB) = 12368.1777; 
+seq_007: Found 927 image files.
+seq_008: Found 929 image files.
+seq_014: Found 929 image files.
+[1;36m[INFO][0m Submitting sequence seq_007 with 927 frames.
+[1;32m[SUCCESS][0m Submit sequence seq_007 done, FPS: 8.56. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_7/tracker/seq_007.txt.
+[1;36m[INFO][0m Submitting sequence seq_008 with 929 frames.
+[1;32m[SUCCESS][0m Submit sequence seq_008 done, FPS: 8.36. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_7/tracker/seq_008.txt.
+[1;36m[INFO][0m Submitting sequence seq_014 with 929 frames.
+
+Eval Config:
+USE_PARALLEL         : True                          
+NUM_PARALLEL_CORES   : 8                             
+BREAK_ON_ERROR       : True                          
+RETURN_ON_ERROR      : False                         
+LOG_ON_ERROR         : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/TrackEval/error_log.txt
+PRINT_RESULTS        : True                          
+PRINT_ONLY_COMBINED  : False                         
+PRINT_CONFIG         : True                          
+TIME_PROGRESS        : True                          
+DISPLAY_LESS_PROGRESS : False                         
+OUTPUT_SUMMARY       : True                          
+OUTPUT_EMPTY_CLASSES : True                          
+OUTPUT_DETAILED      : True                          
+PLOT_CURVES          : False                         
+
+MotChallenge2DBox Config:
+PRINT_CONFIG         : True                          
+GT_FOLDER            : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data/Bosch_1/val
+TRACKERS_FOLDER      : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_7/tracker
+OUTPUT_FOLDER        : None                          
+TRACKERS_TO_EVAL     : ['']                          
+CLASSES_TO_EVAL      : ['pedestrian']                
+BENCHMARK            : MOT17                         
+SPLIT_TO_EVAL        : val                           
+INPUT_AS_ZIP         : False                         
+DO_PREPROC           : False                         
+TRACKER_SUB_FOLDER   :                               
+OUTPUT_SUB_FOLDER    :                               
+TRACKER_DISPLAY_NAMES : None                          
+SEQMAP_FOLDER        : None                          
+SEQMAP_FILE          : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data/Bosch_1/val_seqmap.txt
+SEQ_INFO             : None                          
+GT_LOC_FORMAT        : {gt_folder}/{seq}/gt/gt.txt   
+SKIP_SPLIT_FOL       : True                          
+
+CLEAR Config:
+METRICS              : ['HOTA', 'CLEAR', 'Identity'] 
+THRESHOLD            : 0.5                           
+PRINT_CONFIG         : True                          
+
+Identity Config:
+METRICS              : ['HOTA', 'CLEAR', 'Identity'] 
+THRESHOLD            : 0.5                           
+PRINT_CONFIG         : True                          
+
+Evaluating 1 tracker(s) on 2 sequence(s) for 1 class(es) on MotChallenge2DBox dataset using the following metrics: HOTA, CLEAR, Identity, Count
+
+
+Evaluating 
+
+
+All sequences for  finished in 0.43 seconds
+
+HOTA: -pedestrian                  HOTA      DetA      AssA      DetRe     DetPr     AssRe     AssPr     LocA      RHOTA     HOTA(0)   LocA(0)   HOTALocA(0)
+seq_007                            7.3009    43.052    1.3255    52.618    65.121    1.3255    100       85.4      8.1158    8.3546    82.627    6.9031    
+seq_008                            5.55      21.831    1.5515    31.974    38.188    1.5515    100       80.878    6.7527    6.7008    74.492    4.9916    
+COMBINED                           6.2124    29.123    1.4314    39.971    48.395    1.4314    100       83.104    7.315     7.3156    78.421    5.7369    
+
+CLEAR: -pedestrian                 MOTA      MOTP      MODA      CLR_Re    CLR_Pr    MTR       PTR       MLR       sMOTA     CLR_TP    CLR_FN    CLR_FP    IDSW      MT        PT        ML        Frag      
+seq_007                            -19.067   84.053    40        60.4      74.752    30        50        20        -28.699   453       297       153       443       3         5         2         24        
+seq_008                            -45.194   78.984    -9.5278   37.099    44.31     0         61.111    38.889    -52.991   440       746       553       423       0         11        7         38        
+COMBINED                           -35.072   81.556    9.6591    46.126    55.847    10.714    57.143    32.143    -43.58    893       1043      706       866       3         16        9         62        
+
+Identity: -pedestrian              IDF1      IDR       IDP       IDTP      IDFN      IDFP      
+seq_007                            1.4749    1.3333    1.6502    10        740       596       
+seq_008                            1.5603    1.4334    1.712     17        1169      976       
+COMBINED                           1.5276    1.3946    1.6886    27        1909      1572      
+
+Count: -pedestrian                 Dets      GT_Dets   IDs       GT_IDs    
+seq_007                            606       750       606       10        
+seq_008                            993       1186      993       18        
+COMBINED                           1599      1936      1599      28        
+[1;32m[SUCCESS][0m Submit sequence seq_014 done, FPS: 8.42. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_7/tracker/seq_014.txt.
+[1;36m[INFO][0m Start evaluation...
+[1;32m[SUCCESS][0m Evaluation script is done.
+[1;32m[SUCCESS][0m Get evaluation metrics from /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_7/tracker/pedestrian_summary.txt.
+[1;36m[Metrics][0m [Eval epoch: 7] HOTA = 6.2124; DetA = 29.1230; AssA = 1.4314; DetPr = 48.3950; DetRe = 39.9710; AssPr = 100.0000; AssRe = 1.4314; MOTA = -35.0720; IDF1 = 1.5276; 
+[1;32m[SUCCESS][0m Finish training epoch 7.
+[1;36m[INFO][0m Start training epoch 8.
+/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/autograd/graph.py:744: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at /opt/conda/conda-bld/pytorch_1712608935911/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/conv.py:456: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at /opt/conda/conda-bld/pytorch_1712608935911/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return F.conv2d(input, weight, bias, self.stride,
+[1;36m[Metrics][0m [Epoch: 8] [0/55] [tps: 9.15s] [eta: 0:8:23] loss = 8.7443 (8.7443); detr_loss = 4.8537 (4.8537); id_loss = 3.8906 (3.8906); loss_ce = 0.0604 (0.0604); class_error = 0.0000 (0.0000); loss_bbox = 0.0031 (0.0031); loss_giou = 0.2764 (0.2764); cardinality_error = 23.9000 (23.9000); loss_ce_0 = 0.0558 (0.0558); class_error_0 = 0.0000 (0.0000); loss_bbox_0 = 0.0058 (0.0058); loss_giou_0 = 0.4531 (0.4531); cardinality_error_0 = 23.9000 (23.9000); loss_ce_1 = 0.0857 (0.0857); class_error_1 = 0.0000 (0.0000); loss_bbox_1 = 0.0042 (0.0042); loss_giou_1 = 0.3682 (0.3682); cardinality_error_1 = 23.9000 (23.9000); loss_ce_2 = 0.0855 (0.0855); class_error_2 = 0.0000 (0.0000); loss_bbox_2 = 0.0034 (0.0034); loss_giou_2 = 0.3016 (0.3016); cardinality_error_2 = 23.9000 (23.9000); loss_ce_3 = 0.0757 (0.0757); class_error_3 = 0.0000 (0.0000); loss_bbox_3 = 0.0029 (0.0029); loss_giou_3 = 0.2686 (0.2686); cardinality_error_3 = 23.9000 (23.9000); loss_ce_4 = 0.0639 (0.0639); class_error_4 = 0.0000 (0.0000); loss_bbox_4 = 0.0030 (0.0030); loss_giou_4 = 0.2758 (0.2758); cardinality_error_4 = 23.9000 (23.9000); detr_grad_norm = 13.6758 (13.6758); other_grad_norm = 1.2232 (1.2232); lr = 0.0000 (0.0000); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Epoch: 8] [20/55] [tps: 2.95s] [eta: 0:1:43] loss = 7.3006 (7.3006); detr_loss = 3.4133 (3.4133); id_loss = 3.8873 (3.8873); loss_ce = 0.0278 (0.0278); class_error = -0.0000 (-0.0000); loss_bbox = 0.0024 (0.0024); loss_giou = 0.1963 (0.1963); cardinality_error = 17.5571 (17.5571); loss_ce_0 = 0.0657 (0.0657); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0047 (0.0047); loss_giou_0 = 0.3611 (0.3611); cardinality_error_0 = 17.5571 (17.5571); loss_ce_1 = 0.0633 (0.0633); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0030 (0.0030); loss_giou_1 = 0.2401 (0.2401); cardinality_error_1 = 17.5571 (17.5571); loss_ce_2 = 0.0465 (0.0465); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0025 (0.0025); loss_giou_2 = 0.2083 (0.2083); cardinality_error_2 = 17.5571 (17.5571); loss_ce_3 = 0.0324 (0.0324); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0024 (0.0024); loss_giou_3 = 0.1966 (0.1966); cardinality_error_3 = 17.5571 (17.5571); loss_ce_4 = 0.0291 (0.0291); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0024 (0.0024); loss_giou_4 = 0.1961 (0.1961); cardinality_error_4 = 17.5571 (17.5571); detr_grad_norm = 63.5062 (63.5062); other_grad_norm = 2.0479 (2.0479); lr = 0.0000 (0.0000); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Epoch: 8] [40/55] [tps: 2.61s] [eta: 0:0:39] loss = 7.2234 (7.2234); detr_loss = 3.3511 (3.3511); id_loss = 3.8723 (3.8723); loss_ce = 0.0265 (0.0265); class_error = -0.0000 (-0.0000); loss_bbox = 0.0027 (0.0027); loss_giou = 0.1994 (0.1994); cardinality_error = 14.7463 (14.7463); loss_ce_0 = 0.0686 (0.0686); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0047 (0.0047); loss_giou_0 = 0.3368 (0.3368); cardinality_error_0 = 14.7463 (14.7463); loss_ce_1 = 0.0602 (0.0602); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0031 (0.0031); loss_giou_1 = 0.2320 (0.2320); cardinality_error_1 = 14.7463 (14.7463); loss_ce_2 = 0.0427 (0.0427); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0028 (0.0028); loss_giou_2 = 0.2069 (0.2069); cardinality_error_2 = 14.7463 (14.7463); loss_ce_3 = 0.0307 (0.0307); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0027 (0.0027); loss_giou_3 = 0.1986 (0.1986); cardinality_error_3 = 14.7463 (14.7463); loss_ce_4 = 0.0269 (0.0269); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0027 (0.0027); loss_giou_4 = 0.1995 (0.1995); cardinality_error_4 = 14.7463 (14.7463); detr_grad_norm = 61.8694 (61.8694); other_grad_norm = 2.3078 (2.3078); lr = 0.0000 (0.0000); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Finish epoch: 8] [Time: 0:2:20] loss = 7.2234; detr_loss = 3.3511; id_loss = 3.8723; loss_ce = 0.0265; class_error = -0.0000; loss_bbox = 0.0027; loss_giou = 0.1994; cardinality_error = 14.7463; loss_ce_0 = 0.0686; class_error_0 = -0.0000; loss_bbox_0 = 0.0047; loss_giou_0 = 0.3368; cardinality_error_0 = 14.7463; loss_ce_1 = 0.0602; class_error_1 = -0.0000; loss_bbox_1 = 0.0031; loss_giou_1 = 0.2320; cardinality_error_1 = 14.7463; loss_ce_2 = 0.0427; class_error_2 = -0.0000; loss_bbox_2 = 0.0028; loss_giou_2 = 0.2069; cardinality_error_2 = 14.7463; loss_ce_3 = 0.0307; class_error_3 = -0.0000; loss_bbox_3 = 0.0027; loss_giou_3 = 0.1986; cardinality_error_3 = 14.7463; loss_ce_4 = 0.0269; class_error_4 = -0.0000; loss_bbox_4 = 0.0027; loss_giou_4 = 0.1995; cardinality_error_4 = 14.7463; detr_grad_norm = 61.8694; other_grad_norm = 2.3078; lr = 0.0000; max_cuda_mem(MB) = 12368.1777; 
+seq_007: Found 927 image files.
+seq_008: Found 929 image files.
+seq_014: Found 929 image files.
+[1;36m[INFO][0m Submitting sequence seq_007 with 927 frames.
+[1;32m[SUCCESS][0m Submit sequence seq_007 done, FPS: 8.51. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_8/tracker/seq_007.txt.
+[1;36m[INFO][0m Submitting sequence seq_008 with 929 frames.
+[1;32m[SUCCESS][0m Submit sequence seq_008 done, FPS: 8.40. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_8/tracker/seq_008.txt.
+[1;36m[INFO][0m Submitting sequence seq_014 with 929 frames.
+
+Eval Config:
+USE_PARALLEL         : True                          
+NUM_PARALLEL_CORES   : 8                             
+BREAK_ON_ERROR       : True                          
+RETURN_ON_ERROR      : False                         
+LOG_ON_ERROR         : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/TrackEval/error_log.txt
+PRINT_RESULTS        : True                          
+PRINT_ONLY_COMBINED  : False                         
+PRINT_CONFIG         : True                          
+TIME_PROGRESS        : True                          
+DISPLAY_LESS_PROGRESS : False                         
+OUTPUT_SUMMARY       : True                          
+OUTPUT_EMPTY_CLASSES : True                          
+OUTPUT_DETAILED      : True                          
+PLOT_CURVES          : False                         
+
+MotChallenge2DBox Config:
+PRINT_CONFIG         : True                          
+GT_FOLDER            : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data/Bosch_1/val
+TRACKERS_FOLDER      : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_8/tracker
+OUTPUT_FOLDER        : None                          
+TRACKERS_TO_EVAL     : ['']                          
+CLASSES_TO_EVAL      : ['pedestrian']                
+BENCHMARK            : MOT17                         
+SPLIT_TO_EVAL        : val                           
+INPUT_AS_ZIP         : False                         
+DO_PREPROC           : False                         
+TRACKER_SUB_FOLDER   :                               
+OUTPUT_SUB_FOLDER    :                               
+TRACKER_DISPLAY_NAMES : None                          
+SEQMAP_FOLDER        : None                          
+SEQMAP_FILE          : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data/Bosch_1/val_seqmap.txt
+SEQ_INFO             : None                          
+GT_LOC_FORMAT        : {gt_folder}/{seq}/gt/gt.txt   
+SKIP_SPLIT_FOL       : True                          
+
+CLEAR Config:
+METRICS              : ['HOTA', 'CLEAR', 'Identity'] 
+THRESHOLD            : 0.5                           
+PRINT_CONFIG         : True                          
+
+Identity Config:
+METRICS              : ['HOTA', 'CLEAR', 'Identity'] 
+THRESHOLD            : 0.5                           
+PRINT_CONFIG         : True                          
+
+Evaluating 1 tracker(s) on 2 sequence(s) for 1 class(es) on MotChallenge2DBox dataset using the following metrics: HOTA, CLEAR, Identity, Count
+
+
+Evaluating 
+
+
+All sequences for  finished in 0.50 seconds
+
+HOTA: -pedestrian                  HOTA      DetA      AssA      DetRe     DetPr     AssRe     AssPr     LocA      RHOTA     HOTA(0)   LocA(0)   HOTALocA(0)
+seq_007                            7.2403    42.655    1.3238    53.558    62.568    1.3238    100       84.797    8.1597    8.3715    81.66     6.8362    
+seq_008                            5.5241    21.7      1.5628    32.64     36.832    1.5628    100       80.663    6.812     6.694     74.016    4.9547    
+COMBINED                           6.1725    28.905    1.4353    40.743    46.591    1.4353    100       82.694    7.3667    7.3177    77.711    5.6867    
+
+CLEAR: -pedestrian                 MOTA      MOTP      MODA      CLR_Re    CLR_Pr    MTR       PTR       MLR       sMOTA     CLR_TP    CLR_FN    CLR_FP    IDSW      MT        PT        ML        Frag      
+seq_007                            -22.267   83.272    38.4      62        72.43     30        50        20        -32.638   465       285       177       455       3         5         2         24        
+seq_008                            -49.325   78.822    -12.901   37.858    42.721    5.5556    55.556    38.889    -57.343   449       737       602       432       1         10        7         40        
+COMBINED                           -38.843   81.086    6.9731    47.211    53.987    14.286    53.571    32.143    -47.772   914       1022      779       887       4         15        9         64        
+
+Identity: -pedestrian              IDF1      IDR       IDP       IDTP      IDFN      IDFP      
+seq_007                            1.4368    1.3333    1.5576    10        740       632       
+seq_008                            1.5199    1.4334    1.6175    17        1169      1034      
+COMBINED                           1.488     1.3946    1.5948    27        1909      1666      
+
+Count: -pedestrian                 Dets      GT_Dets   IDs       GT_IDs    
+seq_007                            642       750       642       10        
+seq_008                            1051      1186      1051      18        
+COMBINED                           1693      1936      1693      28        
+[1;32m[SUCCESS][0m Submit sequence seq_014 done, FPS: 8.40. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_8/tracker/seq_014.txt.
+[1;36m[INFO][0m Start evaluation...
+[1;32m[SUCCESS][0m Evaluation script is done.
+[1;32m[SUCCESS][0m Get evaluation metrics from /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_8/tracker/pedestrian_summary.txt.
+[1;36m[Metrics][0m [Eval epoch: 8] HOTA = 6.1725; DetA = 28.9050; AssA = 1.4353; DetPr = 46.5910; DetRe = 40.7430; AssPr = 100.0000; AssRe = 1.4353; MOTA = -38.8430; IDF1 = 1.4880; 
+[1;32m[SUCCESS][0m Finish training epoch 8.
+[1;36m[INFO][0m Start training epoch 9.
+/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/autograd/graph.py:744: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at /opt/conda/conda-bld/pytorch_1712608935911/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/conv.py:456: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at /opt/conda/conda-bld/pytorch_1712608935911/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return F.conv2d(input, weight, bias, self.stride,
+[1;36m[Metrics][0m [Epoch: 9] [0/51] [tps: 8.14s] [eta: 0:6:55] loss = 5.0888 (5.0888); detr_loss = 1.4095 (1.4095); id_loss = 3.6793 (3.6793); loss_ce = 0.0011 (0.0011); class_error = 0.0000 (0.0000); loss_bbox = 0.0008 (0.0008); loss_giou = 0.0986 (0.0986); cardinality_error = 3.0000 (3.0000); loss_ce_0 = 0.0079 (0.0079); class_error_0 = 0.0000 (0.0000); loss_bbox_0 = 0.0013 (0.0013); loss_giou_0 = 0.1485 (0.1485); cardinality_error_0 = 3.0000 (3.0000); loss_ce_1 = 0.0010 (0.0010); class_error_1 = 0.0000 (0.0000); loss_bbox_1 = 0.0011 (0.0011); loss_giou_1 = 0.1331 (0.1331); cardinality_error_1 = 3.0000 (3.0000); loss_ce_2 = 0.0006 (0.0006); class_error_2 = 0.0000 (0.0000); loss_bbox_2 = 0.0008 (0.0008); loss_giou_2 = 0.0982 (0.0982); cardinality_error_2 = 3.0000 (3.0000); loss_ce_3 = 0.0007 (0.0007); class_error_3 = 0.0000 (0.0000); loss_bbox_3 = 0.0009 (0.0009); loss_giou_3 = 0.1010 (0.1010); cardinality_error_3 = 3.0000 (3.0000); loss_ce_4 = 0.0011 (0.0011); class_error_4 = 0.0000 (0.0000); loss_bbox_4 = 0.0008 (0.0008); loss_giou_4 = 0.0983 (0.0983); cardinality_error_4 = 3.0000 (3.0000); detr_grad_norm = 48.8472 (48.8472); other_grad_norm = 4.8189 (4.8189); lr = 0.0000 (0.0000); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Epoch: 9] [20/51] [tps: 2.92s] [eta: 0:1:30] loss = 6.9390 (6.9390); detr_loss = 3.0676 (3.0676); id_loss = 3.8714 (3.8714); loss_ce = 0.0217 (0.0217); class_error = -0.0000 (-0.0000); loss_bbox = 0.0024 (0.0024); loss_giou = 0.1857 (0.1857); cardinality_error = 15.4095 (15.4095); loss_ce_0 = 0.0610 (0.0610); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0043 (0.0043); loss_giou_0 = 0.3134 (0.3134); cardinality_error_0 = 15.4095 (15.4095); loss_ce_1 = 0.0485 (0.0485); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0027 (0.0027); loss_giou_1 = 0.2150 (0.2150); cardinality_error_1 = 15.4095 (15.4095); loss_ce_2 = 0.0356 (0.0356); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0024 (0.0024); loss_giou_2 = 0.1912 (0.1912); cardinality_error_2 = 15.4095 (15.4095); loss_ce_3 = 0.0256 (0.0256); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0024 (0.0024); loss_giou_3 = 0.1874 (0.1874); cardinality_error_3 = 15.4095 (15.4095); loss_ce_4 = 0.0219 (0.0219); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0024 (0.0024); loss_giou_4 = 0.1857 (0.1857); cardinality_error_4 = 15.4095 (15.4095); detr_grad_norm = 104.3610 (104.3610); other_grad_norm = 2.2347 (2.2347); lr = 0.0000 (0.0000); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Epoch: 9] [40/51] [tps: 2.54s] [eta: 0:0:27] loss = 7.0569 (7.0569); detr_loss = 3.1836 (3.1836); id_loss = 3.8733 (3.8733); loss_ce = 0.0224 (0.0224); class_error = -0.0000 (-0.0000); loss_bbox = 0.0025 (0.0025); loss_giou = 0.1902 (0.1902); cardinality_error = 16.0000 (16.0000); loss_ce_0 = 0.0679 (0.0679); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0045 (0.0045); loss_giou_0 = 0.3227 (0.3227); cardinality_error_0 = 16.0000 (16.0000); loss_ce_1 = 0.0544 (0.0544); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0029 (0.0029); loss_giou_1 = 0.2229 (0.2229); cardinality_error_1 = 16.0000 (16.0000); loss_ce_2 = 0.0406 (0.0406); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0026 (0.0026); loss_giou_2 = 0.1962 (0.1962); cardinality_error_2 = 16.0000 (16.0000); loss_ce_3 = 0.0266 (0.0266); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0025 (0.0025); loss_giou_3 = 0.1913 (0.1913); cardinality_error_3 = 16.0000 (16.0000); loss_ce_4 = 0.0226 (0.0226); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0025 (0.0025); loss_giou_4 = 0.1900 (0.1900); cardinality_error_4 = 16.0000 (16.0000); detr_grad_norm = 89.1296 (89.1296); other_grad_norm = 2.1140 (2.1140); lr = 0.0000 (0.0000); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Finish epoch: 9] [Time: 0:2:11] loss = 7.0569; detr_loss = 3.1836; id_loss = 3.8733; loss_ce = 0.0224; class_error = -0.0000; loss_bbox = 0.0025; loss_giou = 0.1902; cardinality_error = 16.0000; loss_ce_0 = 0.0679; class_error_0 = -0.0000; loss_bbox_0 = 0.0045; loss_giou_0 = 0.3227; cardinality_error_0 = 16.0000; loss_ce_1 = 0.0544; class_error_1 = -0.0000; loss_bbox_1 = 0.0029; loss_giou_1 = 0.2229; cardinality_error_1 = 16.0000; loss_ce_2 = 0.0406; class_error_2 = -0.0000; loss_bbox_2 = 0.0026; loss_giou_2 = 0.1962; cardinality_error_2 = 16.0000; loss_ce_3 = 0.0266; class_error_3 = -0.0000; loss_bbox_3 = 0.0025; loss_giou_3 = 0.1913; cardinality_error_3 = 16.0000; loss_ce_4 = 0.0226; class_error_4 = -0.0000; loss_bbox_4 = 0.0025; loss_giou_4 = 0.1900; cardinality_error_4 = 16.0000; detr_grad_norm = 89.1296; other_grad_norm = 2.1140; lr = 0.0000; max_cuda_mem(MB) = 12368.1777; 
+seq_007: Found 927 image files.
+seq_008: Found 929 image files.
+seq_014: Found 929 image files.
+[1;36m[INFO][0m Submitting sequence seq_007 with 927 frames.
+[1;32m[SUCCESS][0m Submit sequence seq_007 done, FPS: 8.52. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_9/tracker/seq_007.txt.
+[1;36m[INFO][0m Submitting sequence seq_008 with 929 frames.
+[1;32m[SUCCESS][0m Submit sequence seq_008 done, FPS: 8.37. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_9/tracker/seq_008.txt.
+[1;36m[INFO][0m Submitting sequence seq_014 with 929 frames.
+
+Eval Config:
+USE_PARALLEL         : True                          
+NUM_PARALLEL_CORES   : 8                             
+BREAK_ON_ERROR       : True                          
+RETURN_ON_ERROR      : False                         
+LOG_ON_ERROR         : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/TrackEval/error_log.txt
+PRINT_RESULTS        : True                          
+PRINT_ONLY_COMBINED  : False                         
+PRINT_CONFIG         : True                          
+TIME_PROGRESS        : True                          
+DISPLAY_LESS_PROGRESS : False                         
+OUTPUT_SUMMARY       : True                          
+OUTPUT_EMPTY_CLASSES : True                          
+OUTPUT_DETAILED      : True                          
+PLOT_CURVES          : False                         
+
+MotChallenge2DBox Config:
+PRINT_CONFIG         : True                          
+GT_FOLDER            : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data/Bosch_1/val
+TRACKERS_FOLDER      : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_9/tracker
+OUTPUT_FOLDER        : None                          
+TRACKERS_TO_EVAL     : ['']                          
+CLASSES_TO_EVAL      : ['pedestrian']                
+BENCHMARK            : MOT17                         
+SPLIT_TO_EVAL        : val                           
+INPUT_AS_ZIP         : False                         
+DO_PREPROC           : False                         
+TRACKER_SUB_FOLDER   :                               
+OUTPUT_SUB_FOLDER    :                               
+TRACKER_DISPLAY_NAMES : None                          
+SEQMAP_FOLDER        : None                          
+SEQMAP_FILE          : /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data/Bosch_1/val_seqmap.txt
+SEQ_INFO             : None                          
+GT_LOC_FORMAT        : {gt_folder}/{seq}/gt/gt.txt   
+SKIP_SPLIT_FOL       : True                          
+
+CLEAR Config:
+METRICS              : ['HOTA', 'CLEAR', 'Identity'] 
+THRESHOLD            : 0.5                           
+PRINT_CONFIG         : True                          
+
+Identity Config:
+METRICS              : ['HOTA', 'CLEAR', 'Identity'] 
+THRESHOLD            : 0.5                           
+PRINT_CONFIG         : True                          
+
+Evaluating 1 tracker(s) on 2 sequence(s) for 1 class(es) on MotChallenge2DBox dataset using the following metrics: HOTA, CLEAR, Identity, Count
+
+
+Evaluating 
+
+
+All sequences for  finished in 0.78 seconds
+
+HOTA: -pedestrian                  HOTA      DetA      AssA      DetRe     DetPr     AssRe     AssPr     LocA      RHOTA     HOTA(0)   LocA(0)   HOTALocA(0)
+seq_007                            7.2857    43.094    1.3239    54.098    62.905    1.3239    100       84.919    8.2096    8.3968    81.862    6.8737    
+seq_008                            5.5298    21.773    1.5561    32.782    36.852    1.5561    100       80.575    6.8223    6.7041    73.951    4.9578    
+COMBINED                           6.1942    29.096    1.4314    41.04     46.737    1.4314    100       82.713    7.3947    7.3332    77.78     5.7038    
+
+CLEAR: -pedestrian                 MOTA      MOTP      MODA      CLR_Re    CLR_Pr    MTR       PTR       MLR       sMOTA     CLR_TP    CLR_FN    CLR_FP    IDSW      MT        PT        ML        Frag      
+seq_007                            -22.267   83.457    38.8      62.4      72.558    30        50        20        -32.59    468       282       177       458       3         5         2         21        
+seq_008                            -49.494   78.707    -12.901   38.027    42.749    5.5556    55.556    38.889    -57.591   451       735       604       434       1         10        7         40        
+COMBINED                           -38.946   81.126    7.1281    47.469    54.059    14.286    53.571    32.143    -47.906   919       1017      781       892       4         15        9         61        
+
+Identity: -pedestrian              IDF1      IDR       IDP       IDTP      IDFN      IDFP      
+seq_007                            1.4337    1.3333    1.5504    10        740       635       
+seq_008                            1.5172    1.4334    1.6114    17        1169      1038      
+COMBINED                           1.4851    1.3946    1.5882    27        1909      1673      
+
+Count: -pedestrian                 Dets      GT_Dets   IDs       GT_IDs    
+seq_007                            645       750       645       10        
+seq_008                            1055      1186      1055      18        
+COMBINED                           1700      1936      1700      28        
+[1;32m[SUCCESS][0m Submit sequence seq_014 done, FPS: 8.47. Saved to /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_9/tracker/seq_014.txt.
+[1;36m[INFO][0m Start evaluation...
+[1;32m[SUCCESS][0m Evaluation script is done.
+[1;32m[SUCCESS][0m Get evaluation metrics from /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/pretrain_r50_deformable_detr_bosch_1_only_detr_false/train/eval_during_train/epoch_9/tracker/pedestrian_summary.txt.
+[1;36m[Metrics][0m [Eval epoch: 9] HOTA = 6.1942; DetA = 29.0960; AssA = 1.4314; DetPr = 46.7370; DetRe = 41.0400; AssPr = 100.0000; AssRe = 1.4314; MOTA = -38.9460; IDF1 = 1.4851; 
+[1;32m[SUCCESS][0m Finish training epoch 9.
+[1;36m[INFO][0m Start training epoch 10.
+/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/conv.py:456: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at /opt/conda/conda-bld/pytorch_1712608935911/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return F.conv2d(input, weight, bias, self.stride,
+/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/autograd/graph.py:744: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at /opt/conda/conda-bld/pytorch_1712608935911/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[1;36m[Metrics][0m [Epoch: 10] [0/49] [tps: 8.84s] [eta: 0:7:13] loss = 8.0896 (8.0896); detr_loss = 4.1722 (4.1722); id_loss = 3.9174 (3.9174); loss_ce = 0.0347 (0.0347); class_error = 0.0000 (0.0000); loss_bbox = 0.0030 (0.0030); loss_giou = 0.2333 (0.2333); cardinality_error = 28.6000 (28.6000); loss_ce_0 = 0.0754 (0.0754); class_error_0 = 0.0000 (0.0000); loss_bbox_0 = 0.0060 (0.0060); loss_giou_0 = 0.4307 (0.4307); cardinality_error_0 = 28.6000 (28.6000); loss_ce_1 = 0.0931 (0.0931); class_error_1 = 0.0000 (0.0000); loss_bbox_1 = 0.0040 (0.0040); loss_giou_1 = 0.3018 (0.3018); cardinality_error_1 = 28.6000 (28.6000); loss_ce_2 = 0.0695 (0.0695); class_error_2 = 0.0000 (0.0000); loss_bbox_2 = 0.0032 (0.0032); loss_giou_2 = 0.2508 (0.2508); cardinality_error_2 = 28.6000 (28.6000); loss_ce_3 = 0.0398 (0.0398); class_error_3 = 0.0000 (0.0000); loss_bbox_3 = 0.0030 (0.0030); loss_giou_3 = 0.2346 (0.2346); cardinality_error_3 = 28.6000 (28.6000); loss_ce_4 = 0.0329 (0.0329); class_error_4 = 0.0000 (0.0000); loss_bbox_4 = 0.0030 (0.0030); loss_giou_4 = 0.2340 (0.2340); cardinality_error_4 = 28.6000 (28.6000); detr_grad_norm = 31.4169 (31.4169); other_grad_norm = 1.3587 (1.3587); lr = 0.0000 (0.0000); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Epoch: 10] [20/49] [tps: 2.96s] [eta: 0:1:25] loss = 6.9698 (6.9698); detr_loss = 3.1299 (3.1299); id_loss = 3.8399 (3.8399); loss_ce = 0.0178 (0.0178); class_error = -0.0000 (-0.0000); loss_bbox = 0.0024 (0.0024); loss_giou = 0.1903 (0.1903); cardinality_error = 13.0857 (13.0857); loss_ce_0 = 0.0814 (0.0814); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0042 (0.0042); loss_giou_0 = 0.3238 (0.3238); cardinality_error_0 = 13.0857 (13.0857); loss_ce_1 = 0.0571 (0.0571); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0026 (0.0026); loss_giou_1 = 0.2094 (0.2094); cardinality_error_1 = 13.0857 (13.0857); loss_ce_2 = 0.0347 (0.0347); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0024 (0.0024); loss_giou_2 = 0.1916 (0.1916); cardinality_error_2 = 13.0857 (13.0857); loss_ce_3 = 0.0193 (0.0193); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0024 (0.0024); loss_giou_3 = 0.1909 (0.1909); cardinality_error_3 = 13.0857 (13.0857); loss_ce_4 = 0.0179 (0.0179); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0024 (0.0024); loss_giou_4 = 0.1897 (0.1897); cardinality_error_4 = 13.0857 (13.0857); detr_grad_norm = 49.6042 (49.6042); other_grad_norm = 2.4229 (2.4229); lr = 0.0000 (0.0000); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+[1;36m[Metrics][0m [Epoch: 10] [40/49] [tps: 2.51s] [eta: 0:0:22] loss = 7.1177 (7.1177); detr_loss = 3.2734 (3.2734); id_loss = 3.8443 (3.8443); loss_ce = 0.0211 (0.0211); class_error = -0.0000 (-0.0000); loss_bbox = 0.0028 (0.0028); loss_giou = 0.2018 (0.2018); cardinality_error = 13.8268 (13.8268); loss_ce_0 = 0.0764 (0.0764); class_error_0 = -0.0000 (-0.0000); loss_bbox_0 = 0.0046 (0.0046); loss_giou_0 = 0.3186 (0.3186); cardinality_error_0 = 13.8268 (13.8268); loss_ce_1 = 0.0617 (0.0617); class_error_1 = -0.0000 (-0.0000); loss_bbox_1 = 0.0030 (0.0030); loss_giou_1 = 0.2194 (0.2194); cardinality_error_1 = 13.8268 (13.8268); loss_ce_2 = 0.0387 (0.0387); class_error_2 = -0.0000 (-0.0000); loss_bbox_2 = 0.0028 (0.0028); loss_giou_2 = 0.2041 (0.2041); cardinality_error_2 = 13.8268 (13.8268); loss_ce_3 = 0.0238 (0.0238); class_error_3 = -0.0000 (-0.0000); loss_bbox_3 = 0.0028 (0.0028); loss_giou_3 = 0.2019 (0.2019); cardinality_error_3 = 13.8268 (13.8268); loss_ce_4 = 0.0211 (0.0211); class_error_4 = -0.0000 (-0.0000); loss_bbox_4 = 0.0028 (0.0028); loss_giou_4 = 0.2015 (0.2015); cardinality_error_4 = 13.8268 (13.8268); detr_grad_norm = 129.9145 (129.9145); other_grad_norm = 2.2860 (2.2860); lr = 0.0000 (0.0000); max_cuda_mem(MB) = 12368.1777 (12368.1777); 
+Traceback (most recent call last):
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/train.py", line 735, in <module>
+    train_engine(config=cfg)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/train.py", line 165, in train_engine
+    train_metrics = train_one_epoch(
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/train.py", line 382, in train_one_epoch
+    _ = model(frames=batch_frames, part="detr")
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/models/motip/motip.py", line 41, in forward
+    return self.detr(samples=frames)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/models/deformable_detr/deformable_detr.py", line 135, in forward
+    features, pos = self.backbone(samples)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/models/deformable_detr/backbone.py", line 123, in forward
+    xs = self[0](tensor_list)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/models/deformable_detr/backbone.py", line 87, in forward
+    xs = self.body(tensor_list.tensors)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torchvision/models/_utils.py", line 69, in forward
+    x = module(x)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torchvision/models/resnet.py", line 158, in forward
+    identity = self.downsample(x)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/MOTIP/models/deformable_detr/backbone.py", line 65, in forward
+    return x * scale + bias
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.36 GiB. GPU 
+Traceback (most recent call last):
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/accelerate/commands/launch.py", line 1199, in launch_command
+    simple_launcher(args)
+  File "/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/lib/python3.10/site-packages/accelerate/commands/launch.py", line 785, in simple_launcher
+    raise subprocess.CalledProcessError(returncode=process.returncode, cmd=cmd)
+subprocess.CalledProcessError: Command '['/media/RTCIN9TBA/Interns/RDT2/yai3kor/.cache/motip_env/bin/python3.10', 'train.py', '--data-root', '/media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data', '--exp-name', 'r50_deformable_detr_motip_bosch_1_only_detr_false', '--config-path', './configs/r50_deformable_detr_motip_bosch_1.yaml']' returned non-zero exit status 1.
