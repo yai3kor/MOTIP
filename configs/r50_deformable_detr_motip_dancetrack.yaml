@@ -10,7 +10,7 @@ DEVICE: cuda
 
 # Data settings:
 # 1. paths:
-DATA_ROOT: ./datasets/
+DATA_ROOT: /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data
 DATASETS: [DanceTrack]
 DATASET_SPLITS: [train]
 # 2. sampling:
@@ -107,7 +107,7 @@ SEPARATE_CLIP_NORM: True
 USE_ACCELERATE_CLIP_NORM: True
 
 # Resumes and Pretrains:
-DETR_PRETRAIN: ./pretrains/r50_deformable_detr_coco_dancetrack.pth
+DETR_PRETRAIN: /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/r50_deformable_detr_coco_dancetrack.pth
 RESUME_MODEL:
 RESUME_OPTIMIZER: True
 RESUME_SCHEDULER: True
@@ -131,7 +131,7 @@ AREA_THRESH: 0
 INFERENCE_ONLY_DETR:
 
 # Outputs settings:
-OUTPUTS_DIR:                # outputs directory
+OUTPUTS_DIR: /media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/Training/MOTIP/r50_deformable_detr_coco_dancetrack                # outputs directory
 USE_WANDB: False             # use wandb or not
 EXP_OWNER: hellorpg
 EXP_PROJECT: MOTIP

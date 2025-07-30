@@ -307,6 +307,10 @@ def train_one_epoch(
             other_params.append(param)
 
     for step, samples in enumerate(dataloader):
+        if samples is None:
+            print("[ERROR] Got None for samples in train_one_epoch")
+            continue  # or handle appropriately
+
         images, annotations, metas = samples["images"], samples["annotations"], samples["metas"]
         # Normalize the images:
         # (Normally, it should be done in the dataloader, but here we do it in the training loop (on cuda).)

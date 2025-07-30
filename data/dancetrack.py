@@ -12,7 +12,7 @@ from .util import is_legal, append_annotation
 class DanceTrack(OneDataset):
     def __init__(
             self,
-            data_root: str = "./datasets/",
+            data_root: str = "/media/RTCIN9TBA/Interns/RDT2/yai3kor/workspace/data",
             sub_dir: str = "DanceTrack",
             split: str = "train",
             load_annotation: bool = True,
@@ -39,8 +39,14 @@ class DanceTrack(OneDataset):
         sequence_infos = dict()
         for sequence_name in sequence_names:
             sequence_dir = self._get_sequence_dir(self.data_dir, self.split, sequence_name)
+            ini_path = os.path.join(sequence_dir, "seqinfo.ini")
             ini = ConfigParser()
-            ini.read(os.path.join(sequence_dir, "seqinfo.ini"))
+            ini.read(ini_path)
+
+            # Adding this check to avoid crash if [Sequence] is missing
+            if "Sequence" not in ini:
+                raise RuntimeError(f"Missing [Sequence] section in {ini_path}")
+
             sequence_infos[sequence_name] = {
                 "width": int(ini["Sequence"]["imWidth"]),
                 "height": int(ini["Sequence"]["imHeight"]),
@@ -48,6 +54,7 @@ class DanceTrack(OneDataset):
                 "is_static": False,
             }
         return sequence_infos
+
 
     def _get_image_paths(self):
         sequence_names = self._get_sequence_names()

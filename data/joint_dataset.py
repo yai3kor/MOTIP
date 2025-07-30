@@ -61,11 +61,11 @@ class JointDataset(Dataset):
                     split=split,
                     load_annotation=True,
                 )
-                self.sequence_infos[dataset][split] = dataset_class.get_sequence_infos()
-                self.image_paths[dataset][split] = dataset_class.get_image_paths()
-                self.annotations[dataset][split] = dataset_class.get_annotations()
-            except KeyError:
-                raise AttributeError(f"Dataset {dataset} is not supported.")
+            except Exception as e:
+                import traceback
+                traceback.print_exc()
+                raise RuntimeError(f"Failed to initialize dataset '{dataset}': {str(e)}")
+
         # Decouple the 'is_legal' attribute from the annotations,
         # I believe it is more flexible to check the legality of the annotations in the sampling process.
         self.ann_is_legals = self._decouple_is_legal()
